@@ -1,0 +1,1717 @@
+Program.Sub.ScreenSU.Start
+gui.Form1..create
+gui.Form1..caption("ATG BOAT TIMECLOCK")
+gui.Form1..size(11670,11460)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,form1_unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(True)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+gui.Form1.frame1.create(frame)
+gui.Form1.frame1.caption("Length of Day")
+gui.Form1.frame1.size(7080,1125)
+gui.Form1.frame1.position(1845,2040)
+gui.Form1.frame1.visible(True)
+gui.Form1.frame1.fontname("Arial")
+gui.Form1.frame1.fontsize(8)
+gui.Form1.frame2.create(frame)
+gui.Form1.frame2.caption("Pay Type")
+gui.Form1.frame2.size(10995,1395)
+gui.Form1.frame2.position(215,3385)
+gui.Form1.frame2.visible(True)
+gui.Form1.frame2.fontname("Arial")
+gui.Form1.frame2.fontsize(8)
+gui.Form1.txtEmplNo.create(textbox,"",True,1215,285,0,4380,600,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtEmplNo.event(change,txtemplno_change)
+gui.Form1.txtEmplNo.maxLength(5)
+gui.Form1.txtName.create(textbox,"",True,2805,285,0,6070,600,False,0,Arial,8,-2147483643,1)
+gui.Form1.datepickerDteWkd.create(datepicker)
+gui.Form1.datepickerDteWkd.visible(True)
+gui.Form1.datepickerDteWkd.size(1935,285)
+gui.Form1.datepickerDteWkd.zorder(0)
+gui.Form1.datepickerDteWkd.position(1875,1500)
+gui.Form1.datepickerDteWkd.enabled(True)
+gui.Form1.datepickerDteWkd.event(change,datepickerdtewkd_change)
+gui.Form1.datepickerDteWkd.checkbox(False)
+gui.Form1.optFullDay.create(option)
+gui.Form1.optFullDay.caption("Full Day")
+gui.Form1.optFullDay.visible(True)
+gui.Form1.optFullDay.size(1575,255)
+gui.Form1.optFullDay.zorder(0)
+gui.Form1.optFullDay.position(200,445)
+gui.Form1.optFullDay.enabled(True)
+gui.Form1.optFullDay.alignment(0)
+gui.Form1.optFullDay.parent("frame1")
+gui.Form1.optFullDay.fontname("Arial")
+gui.Form1.optFullDay.fontsize(8)
+gui.Form1.opt23Day.create(option)
+gui.Form1.opt23Day.caption("2/3 Day")
+gui.Form1.opt23Day.visible(True)
+gui.Form1.opt23Day.size(1575,255)
+gui.Form1.opt23Day.zorder(0)
+gui.Form1.opt23Day.position(2420,445)
+gui.Form1.opt23Day.enabled(False)
+gui.Form1.opt23Day.alignment(0)
+gui.Form1.opt23Day.parent("frame1")
+gui.Form1.opt23Day.fontname("Arial")
+gui.Form1.opt23Day.fontsize(8)
+gui.Form1.opt12day.create(option)
+gui.Form1.opt12day.caption("1/2 Day")
+gui.Form1.opt12day.visible(True)
+gui.Form1.opt12day.size(1575,255)
+gui.Form1.opt12day.zorder(0)
+gui.Form1.opt12day.position(4850,445)
+gui.Form1.opt12day.enabled(True)
+gui.Form1.opt12day.alignment(0)
+gui.Form1.opt12day.parent("frame1")
+gui.Form1.opt12day.fontname("Arial")
+gui.Form1.opt12day.fontsize(8)
+gui.Form1.optIncv.create(option)
+gui.Form1.optIncv.caption("Incentive")
+gui.Form1.optIncv.visible(True)
+gui.Form1.optIncv.size(990,255)
+gui.Form1.optIncv.zorder(0)
+gui.Form1.optIncv.position(215,475)
+gui.Form1.optIncv.enabled(True)
+gui.Form1.optIncv.alignment(0)
+gui.Form1.optIncv.parent("frame2")
+gui.Form1.optIncv.fontname("Arial")
+gui.Form1.optIncv.fontsize(8)
+gui.Form1.optIncv.event(click,optincv_click)
+gui.Form1.optSwap.create(option)
+gui.Form1.optSwap.caption("Swap")
+gui.Form1.optSwap.visible(True)
+gui.Form1.optSwap.size(915,255)
+gui.Form1.optSwap.zorder(0)
+gui.Form1.optSwap.position(3935,475)
+gui.Form1.optSwap.enabled(True)
+gui.Form1.optSwap.alignment(0)
+gui.Form1.optSwap.parent("frame2")
+gui.Form1.optSwap.fontname("Arial")
+gui.Form1.optSwap.fontsize(8)
+gui.Form1.optSwap.event(click,optswap_click)
+gui.Form1.datepickerPayDte.create(datepicker)
+gui.Form1.datepickerPayDte.visible(True)
+gui.Form1.datepickerPayDte.size(1935,285)
+gui.Form1.datepickerPayDte.zorder(0)
+gui.Form1.datepickerPayDte.position(1875,600)
+gui.Form1.datepickerPayDte.enabled(True)
+gui.Form1.datepickerPayDte.checkbox(False)
+gui.Form1.txtJob.create(textbox,"",True,1215,300,0,4380,1500,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtJob.maxLength(6)
+gui.Form1.txtSuff.create(textbox,"",True,570,300,0,6070,1500,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtSuff.maxLength(3)
+gui.Form1.txtSeq.create(textbox,"",True,1215,300,0,7260,1500,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtSeq.maxLength(6)
+gui.Form1.lbl1.create(label,"Pay Date",True,1935,255,1,1875,405,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl2.create(label,"Employee No.",True,1110,255,1,4380,405,True,0,Arial,8,-2147483633,0)
+gui.Form1.cmdEmpBrwse.create(button)
+gui.Form1.cmdEmpBrwse.caption("^")
+gui.Form1.cmdEmpBrwse.visible(True)
+gui.Form1.cmdEmpBrwse.size(285,285)
+gui.Form1.cmdEmpBrwse.zorder(0)
+gui.Form1.cmdEmpBrwse.position(5580,600)
+gui.Form1.cmdEmpBrwse.enabled(True)
+gui.Form1.cmdEmpBrwse.fontname("Arial")
+gui.Form1.cmdEmpBrwse.fontsize(8)
+gui.Form1.cmdEmpBrwse.event(click,cmdempbrwse_click)
+gui.Form1.lbl3.create(label,"Name",True,1935,255,1,6070,405,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl4.create(label,"Date Worked",True,1935,255,1,1875,1300,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl5.create(label,"Job",True,1125,255,1,4380,1300,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl6.create(label,"Suffix",True,495,255,1,6070,1300,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl7.create(label,"Sequence",True,1080,255,1,7285,1300,True,0,Arial,8,-2147483633,0)
+gui.Form1.gsflexgrid1.create(gsflexgrid)
+gui.Form1.gsflexgrid1.FixedRows(0)
+gui.Form1.gsflexgrid1.FixedCols(0)
+gui.Form1.gsflexgrid1.visible(True)
+gui.Form1.gsflexgrid1.size(10995,4800)
+gui.Form1.gsflexgrid1.zorder(0)
+gui.Form1.gsflexgrid1.position(215,5450)
+gui.Form1.gsflexgrid1.enabled(True)
+gui.Form1.gsflexgrid1.event(cellenter,gsflexgrid1_cellenter)
+gui.Form1.cmdOk.create(button)
+gui.Form1.cmdOk.caption("Save")
+gui.Form1.cmdOk.visible(True)
+gui.Form1.cmdOk.size(855,375)
+gui.Form1.cmdOk.zorder(0)
+gui.Form1.cmdOk.position(1155,4970)
+gui.Form1.cmdOk.enabled(True)
+gui.Form1.cmdOk.fontname("Arial")
+gui.Form1.cmdOk.fontsize(8)
+gui.Form1.cmdOk.event(click,cmdok_click)
+gui.Form1.cmdWOBrwse.create(button)
+gui.Form1.cmdWOBrwse.caption("^")
+gui.Form1.cmdWOBrwse.visible(True)
+gui.Form1.cmdWOBrwse.size(285,285)
+gui.Form1.cmdWOBrwse.zorder(0)
+gui.Form1.cmdWOBrwse.position(5580,1500)
+gui.Form1.cmdWOBrwse.enabled(True)
+gui.Form1.cmdWOBrwse.fontname("Arial")
+gui.Form1.cmdWOBrwse.fontsize(8)
+gui.Form1.cmdWOBrwse.event(click,cmdwobrwse_click)
+gui.Form1.cmdDel.create(button)
+gui.Form1.cmdDel.caption("Delete")
+gui.Form1.cmdDel.visible(True)
+gui.Form1.cmdDel.size(855,375)
+gui.Form1.cmdDel.zorder(0)
+gui.Form1.cmdDel.position(3595,4970)
+gui.Form1.cmdDel.enabled(True)
+gui.Form1.cmdDel.fontname("Arial")
+gui.Form1.cmdDel.fontsize(8)
+gui.Form1.cmdDel.event(click,cmddel_click)
+gui.Form1.cmdCancel.create(button)
+gui.Form1.cmdCancel.caption("Cancel")
+gui.Form1.cmdCancel.visible(True)
+gui.Form1.cmdCancel.size(855,375)
+gui.Form1.cmdCancel.zorder(0)
+gui.Form1.cmdCancel.position(2410,4970)
+gui.Form1.cmdCancel.enabled(True)
+gui.Form1.cmdCancel.fontname("Arial")
+gui.Form1.cmdCancel.fontsize(8)
+gui.Form1.cmdCancel.event(click,cmdcancel_click)
+gui.Form1.cmdJobUpdate.create(button)
+gui.Form1.cmdJobUpdate.caption("Update Jobs")
+gui.Form1.cmdJobUpdate.visible(True)
+gui.Form1.cmdJobUpdate.size(1215,555)
+gui.Form1.cmdJobUpdate.zorder(0)
+gui.Form1.cmdJobUpdate.position(9955,10325)
+gui.Form1.cmdJobUpdate.enabled(True)
+gui.Form1.cmdJobUpdate.fontname("Arial")
+gui.Form1.cmdJobUpdate.fontsize(8)
+gui.Form1.cmdJobUpdate.event(click,LaborTransfer)
+gui.Form1.optOT.create(option)
+gui.Form1.optOT.caption("Overtime")
+gui.Form1.optOT.visible(True)
+gui.Form1.optOT.size(1200,255)
+gui.Form1.optOT.zorder(0)
+gui.Form1.optOT.position(6740,475)
+gui.Form1.optOT.enabled(True)
+gui.Form1.optOT.alignment(0)
+gui.Form1.optOT.parent("frame2")
+gui.Form1.optOT.fontname("Arial")
+gui.Form1.optOT.fontsize(8)
+gui.Form1.optOT.event(click,optot_click)
+gui.Form1.optPerDiem.create(option)
+gui.Form1.optPerDiem.caption("Per-Diem")
+gui.Form1.optPerDiem.visible(True)
+gui.Form1.optPerDiem.size(1140,255)
+gui.Form1.optPerDiem.zorder(0)
+gui.Form1.optPerDiem.position(5205,475)
+gui.Form1.optPerDiem.enabled(True)
+gui.Form1.optPerDiem.alignment(0)
+gui.Form1.optPerDiem.parent("frame2")
+gui.Form1.optPerDiem.fontname("Arial")
+gui.Form1.optPerDiem.fontsize(8)
+gui.Form1.optPerDiem.event(click,optperdeim_click)
+gui.Form1.txtAmount.create(textbox,"",True,1215,300,0,9115,900,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtAmount.parent("frame2")
+gui.Form1.txtAmount.numericonly(1)
+gui.Form1.lblAmt.create(label,"Amount  $",True,1935,255,1,7105,945,True,1,Arial,8,-2147483633,0)
+gui.Form1.lblAmt.parent("frame2")
+gui.Form1.optHol.create(option)
+gui.Form1.optHol.caption("Holiday")
+gui.Form1.optHol.visible(True)
+gui.Form1.optHol.size(990,255)
+gui.Form1.optHol.zorder(0)
+gui.Form1.optHol.position(8255,475)
+gui.Form1.optHol.enabled(True)
+gui.Form1.optHol.alignment(0)
+gui.Form1.optHol.parent("frame2")
+gui.Form1.optHol.fontname("Arial")
+gui.Form1.optHol.fontsize(8)
+gui.Form1.optHol.event(click,opthol_click)
+gui.Form1.optTravel.create(option)
+gui.Form1.optTravel.caption("Travel")
+gui.Form1.optTravel.visible(True)
+gui.Form1.optTravel.size(990,255)
+gui.Form1.optTravel.zorder(0)
+gui.Form1.optTravel.position(9630,475)
+gui.Form1.optTravel.enabled(True)
+gui.Form1.optTravel.alignment(0)
+gui.Form1.optTravel.parent("frame2")
+gui.Form1.optTravel.fontname("Arial")
+gui.Form1.optTravel.fontsize(8)
+gui.Form1.optTravel.event(click,opttravel_click)
+gui.Form1.optReg.create(option)
+gui.Form1.optReg.caption("Regular/Non-Incentive")
+gui.Form1.optReg.visible(True)
+gui.Form1.optReg.size(1890,255)
+gui.Form1.optReg.zorder(0)
+gui.Form1.optReg.position(1640,475)
+gui.Form1.optReg.enabled(True)
+gui.Form1.optReg.alignment(0)
+gui.Form1.optReg.parent("frame2")
+gui.Form1.optReg.fontname("Arial")
+gui.Form1.optReg.fontsize(8)
+gui.Form1.optReg.event(click,optreg_click)
+
+
+gui.Form2..create
+gui.Form2..caption("ATG Boat Time Clock")
+gui.Form2..size(6210,3360)
+gui.Form2..position(0,0)
+gui.Form2..event(unload,Unload)
+gui.Form2..alwaysontop(False)
+gui.Form2..fontname("Arial")
+gui.Form2..fontsize(8)
+gui.Form2..forecolor(0)
+gui.Form2..fontstyle(,,,,)
+gui.Form2..BackColor(-2147483633)
+gui.Form2..controlbox(True)
+gui.Form2..maxbutton(True)
+gui.Form2..minbutton(True)
+gui.Form2..mousepointer(0)
+gui.Form2..moveable(True)
+gui.Form2..sizeable(True)
+gui.Form2..ShowInTaskBar(True)
+gui.Form2..titlebar(True)
+gui.Form2.frame1.create(frame)
+gui.Form2.frame1.caption("Pay Period")
+gui.Form2.frame1.size(5580,1770)
+gui.Form2.frame1.position(200,200)
+gui.Form2.frame1.visible(True)
+gui.Form2.frame1.fontname("Arial")
+gui.Form2.frame1.fontsize(8)
+gui.Form2.datepickerPayPrdFrm.create(datepicker)
+gui.Form2.datepickerPayPrdFrm.visible(True)
+gui.Form2.datepickerPayPrdFrm.size(1935,285)
+gui.Form2.datepickerPayPrdFrm.zorder(0)
+gui.Form2.datepickerPayPrdFrm.position(290,800)
+gui.Form2.datepickerPayPrdFrm.enabled(True)
+gui.Form2.datepickerPayPrdFrm.parent("frame1")
+gui.Form2.datepickerPayPrdFrm.event(change,datepickerpayprdfrm_change)
+gui.Form2.datepickerPayPrdFrm.checkbox(False)
+gui.Form2.datepickerPayPrdThru.create(datepicker)
+gui.Form2.datepickerPayPrdThru.visible(True)
+gui.Form2.datepickerPayPrdThru.size(1935,285)
+gui.Form2.datepickerPayPrdThru.zorder(0)
+gui.Form2.datepickerPayPrdThru.position(3300,800)
+gui.Form2.datepickerPayPrdThru.enabled(True)
+gui.Form2.datepickerPayPrdThru.parent("frame1")
+gui.Form2.datepickerPayPrdThru.checkbox(False)
+gui.Form2.lbl1.create(label,"Beginning Date",True,1935,375,1,300,600,True,0,Arial,8,-2147483633,0)
+gui.Form2.lbl1.parent("frame1")
+gui.Form2.lbl2.create(label,"Ending Date",True,1935,375,1,3300,600,True,0,Arial,8,-2147483633,0)
+gui.Form2.lbl2.parent("frame1")
+gui.Form2.lbl3.create(label,"Through",True,945,315,1,2280,800,True,2,Arial,8,-2147483633,0)
+gui.Form2.lbl3.parent("frame1")
+gui.Form2.cmdOk.create(button)
+gui.Form2.cmdOk.caption("OK")
+gui.Form2.cmdOk.visible(True)
+gui.Form2.cmdOk.size(855,375)
+gui.Form2.cmdOk.zorder(0)
+gui.Form2.cmdOk.position(4700,2200)
+gui.Form2.cmdOk.enabled(True)
+gui.Form2.cmdOk.fontname("Arial")
+gui.Form2.cmdOk.fontsize(8)
+gui.Form2.cmdOk.event(click,cmdpayperiodok_click)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.lRow.Declare(Long,0)
+Variable.UDT.DAY.Define("Length",FLoat,"DAY_LENGTH")
+Variable.UDT.DAY.Define("PayDate",Date,"PAY_DATE")
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+
+V.Local.dThruDate.Declare(Date)
+
+'F.ODBC.Connection!Con.OpenConnection("Global_HLB",V.Ambient.PUser,V.Ambient.PPass,500)
+
+'F.ODBC.Connection!ConE.OpenConnection("Global_EBI",V.Ambient.PUser,V.Ambient.PPass,500)
+F.ODBC.Connection!Con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+'F.ODBC.Connection!ConE.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Date.DateAdd("D",14,V.Screen.Form2!datepickerPayPrdFrm.Value,V.Local.dThruDate)
+Gui.Form2.datepickerPayPrdThru.Value(V.Local.dThruDate)
+
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(false)
+Gui.Form1.lblAmt.Visible(false)
+
+
+Gui.Form2..Show
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+
+F.ODBC.Connection!Con.Close
+'F.ODBC.Connection!ConE.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+program.sub.cmdok_click.start
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtEmplNo.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Please select an employee.")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.Form1!optOT.Value,=,True)
+	F.Intrinsic.Control.If(V.Screen.Form1!txtAmount.Text,=,"")
+		F.Intrinsic.UI.Msgbox("Please enter Amount.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+V.Local.sSel.Declare(String)
+V.Local.sSelB.Declare(String)
+V.Local.sValue.Declare(String)
+V.Local.lRows.Declare(Long)
+V.Local.sEmpl.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sSuff.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.dDate.Declare(Date)
+V.Local.bOnFile.Declare(Boolean)
+
+
+V.Local.sDateWrkd.Declare(String)
+
+F.Intrinsic.String.Format(V.Screen.Form1!datepickerDteWkd.Value,"yyyy-mm-dd",V.Local.sDateWrkd)
+F.Intrinsic.String.Trim(V.Screen.Form1!txtEmplNo.Text,V.Local.sEmpl)
+F.Intrinsic.String.Concat("select * from ATG_3571_BOAT_TIMECLOCK where EMPLOYEE='",V.Local.sEmpl.UCase,"' and DATE_WORKED='",V.Local.sDateWrkd,"'",V.Local.sSelB)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstX",V.Local.sSelB)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,False)
+		V.Local.bOnFile.Set(True)
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstX.Close
+
+F.Intrinsic.Control.If(V.Screen.Form1!optIncv.Value,=,True)
+	F.Intrinsic.Control.if(V.Screen.Form1!txtJob.Text,=,"")
+		F.Intrinsic.UI.Msgbox("Job not selected.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optSwap.Value,=,True)
+	F.Intrinsic.Control.if(V.Screen.Form1!txtJob.Text,=,"")
+		F.Intrinsic.UI.Msgbox("Job not selected.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optReg.Value,=,True)
+	F.Intrinsic.Control.if(V.Screen.Form1!txtJob.Text,=,"")
+		F.Intrinsic.UI.Msgbox("Job not selected.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!datepickerDteWkd.Value,<,V.Screen.Form2!datepickerPayPrdFrm.Value)
+	F.Intrinsic.UI.Msgbox("Work Date entered is outside of current pay period.")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!datepickerDteWkd.Value,>,V.Screen.Form2!datepickerPayPrdThru.Value)
+	F.Intrinsic.UI.Msgbox("Work Date entered is outside of current pay period.")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtEmplNo.Text,<>,"")
+	F.Intrinsic.Control.If(V.Global.lRow,=,0)
+
+		F.Intrinsic.Control.If(V.Screen.Form1!optHol.Value,<>,True)
+			F.Intrinsic.Control.If(V.Screen.Form1!optOT.Value,<>,True)
+				F.Intrinsic.Control.If(V.Screen.Form1!optPerDiem.Value,<>,True)
+					F.Intrinsic.Control.If(V.Local.bOnFile,=,True)
+						F.Intrinsic.UI.Msgbox("Paydate already on record.")
+						F.Intrinsic.Control.ExitSub
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+
+
+		F.Intrinsic.String.Concat("select * from ATG_3571_BOAT_TIMECLOCK where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and JOB='",V.Screen.Form1!txtJob.Text,"' and SUFFIX='",V.Screen.Form1!txtSuff.Text,"' and SEQ='",V.Screen.Form1!txtSeq.Text,"' and DATE_WORKED='",V.Local.sDateWrkd,"'",V.Local.sSel)
+		F.ODBC.Connection!Con.OpenRecordsetRW("rstX",V.Local.sSel)
+			F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,True)
+
+				F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+					F.Intrinsic.Math.Add(V.Screen.Form1!gsflexgrid1.Rows,1,V.Local.lRows)
+					Gui.Form1.gsflexgrid1.Rows(V.Local.lRows)
+				F.Intrinsic.Control.Else
+					V.Local.lRows.Set(V.Screen.Form1!gsflexgrid1.Rows)
+				F.Intrinsic.Control.EndIf
+
+				F.Intrinsic.Math.Sub(V.Local.lRows,2,V.Local.lRows)
+
+				F.ODBC.Con!rstX.AddNew
+						F.Intrinsic.String.LPad(V.Screen.Form1!txtEmplNo.Text,"0",5,V.Local.sValue)
+					F.ODBC.Con!rstX.Set!EMPLOYEE(V.Local.sValue)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(0,V.Local.lRows,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+						F.Intrinsic.String.Trim(V.Screen.Form1!txtName.Text,V.Local.sValue)
+					F.ODBC.Con!rstX.Set!NAME(V.Local.sValue)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(1,V.Local.lRows,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!JOB(V.Screen.Form1!txtJob.Text)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(2,V.Local.lRows,V.Screen.Form1!txtJob.Text)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!SUFFIX(V.Screen.Form1!txtSuff.Text)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(3,V.Local.lRows,V.Screen.Form1!txtSuff.Text)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!SEQ("001000")
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(4,V.Local.lRows,"001000")
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!DATE_WORKED(V.Screen.Form1!datepickerDteWkd.Value)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(7,V.Local.lRows,V.Screen.Form1!datepickerDteWkd.Value)
+					F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+
+				F.Intrinsic.Control.If(V.Screen.Form1!optOT.Value,=,True)
+					F.Intrinsic.String.Format(V.Screen.Form1!txtAmount.Text,"0.0000",V.Local.sValue)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.If(V.Screen.Form1!opt12day.Value,=,True)
+						V.Local.sValue.Set("0.5000")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!opt23Day.Value,=,True)
+						V.Local.sValue.Set("1.0000")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optFullDay.Value,=,True)
+						V.Local.sValue.Set("1.0000")
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!DAY_LENGTH(V.Local.sValue)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(5,V.Local.lRows,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Screen.Form1!optIncv.Value,=,True)
+						V.Local.sValue.Set("I")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optSwap.Value,=,True)
+						V.Local.sValue.Set("S")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optHol.Value,=,True)
+						V.Local.sValue.Set("H")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optOT.Value,=,True)
+						V.Local.sValue.Set("O")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optPerDiem.Value,=,True)
+						V.Local.sValue.Set("P")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optTravel.Value,=,True)
+						V.Local.sValue.Set("T")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optReg.Value,=,True)
+						V.Local.sValue.Set("R")
+					F.Intrinsic.Control.EndIf
+					F.ODBC.Con!rstX.Set!PAY_TYPE(V.Local.sValue)
+
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(6,V.Local.lRows,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!PAY_DATE(V.Screen.Form1!datepickerPayDte.Value)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(8,V.Local.lRows,V.Screen.Form1!datepickerPayDte.Value)
+					F.Intrinsic.Control.EndIf
+
+				F.ODBC.Con!rstX.Set!PAY_PERIOD_BEG(V.Screen.Form2!datepickerPayPrdFrm.Value)
+				F.ODBC.Con!rstX.Set!PAY_PERIOD_END(V.Screen.Form2!datepickerPayPrdThru.Value)
+					F.ODBC.Con!rstX.Set!PAID("")
+
+				F.ODBC.Con!rstX.Update
+		F.ODBC.Con!rstX.Close
+
+				Gui.Form1.gsflexgrid1.ApplyStyle(V.Local.lRows,1)
+
+	F.Intrinsic.Control.Else
+
+		Gui.Form1.gsflexgrid1.GetTextMatrix(0,V.Global.lRow,V.Local.sEmpl)
+		Gui.Form1.gsflexgrid1.GetTextMatrix(2,V.Global.lRow,V.Local.sJob)
+		Gui.Form1.gsflexgrid1.GetTextMatrix(3,V.Global.lRow,V.Local.sSuff)
+		Gui.Form1.gsflexgrid1.GetTextMatrix(4,V.Global.lRow,V.Local.sSeq)
+		Gui.Form1.gsflexgrid1.GetTextMatrix(7,V.Global.lRow,V.local.dDate)
+			F.Intrinsic.String.Format(V.Local.dDate,"yyyy-mm-dd",V.Local.sDate)
+
+		F.Intrinsic.String.Concat("delete from ATG_3571_BOAT_TIMECLOCK where EMPLOYEE='",V.Local.sEmpl,"' and JOB='",V.Local.sJob,"' and SUFFIX='",V.Local.sSuff,"' and DATE_WORKED='",V.Local.sDate,"'",V.Local.sSel)
+		F.ODBC.Connection!Con.Execute(V.Local.sSel)
+
+		F.Intrinsic.String.Concat("select * from ATG_3571_BOAT_TIMECLOCK where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and JOB='",V.Screen.Form1!txtJob.Text,"' and SUFFIX='",V.Screen.Form1!txtSuff.Text,"' and DATE_WORKED='",V.Local.sDateWrkd,"'",V.Local.sSel)
+		F.ODBC.Connection!Con.OpenRecordsetRW("rstX",V.Local.sSel)
+			F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,True)
+				F.ODBC.Con!rstX.AddNew
+
+					F.Intrinsic.String.LPad(V.Screen.Form1!txtEmplNo.Text,"0",5,V.Local.sValue)
+					F.ODBC.Con!rstX.Set!EMPLOYEE(V.Local.sValue)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(0,V.Global.lRow,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.String.Trim(V.Screen.Form1!txtName.Text,V.Local.sValue)
+					F.ODBC.Con!rstX.Set!NAME(V.Local.sValue)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(1,V.Global.lRow,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!JOB(V.Screen.Form1!txtJob.Text)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(2,V.Global.lRow,V.Screen.Form1!txtJob.Text)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!SUFFIX(V.Screen.Form1!txtSuff.Text)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(3,V.Global.lRow,V.Screen.Form1!txtSuff.Text)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!SEQ("001000")
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(4,V.Global.lRow,"001000")
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!DATE_WORKED(V.Screen.Form1!datepickerDteWkd.Value)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(7,V.Global.lRow,V.Screen.Form1!datepickerDteWkd.Value)
+					F.Intrinsic.Control.EndIf
+
+				F.Intrinsic.Control.If(V.Screen.Form1!optOT.Value,=,True)
+					F.Intrinsic.String.Format(V.Screen.Form1!txtAmount.Text,"0.0000",V.Local.sValue)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.If(V.Screen.Form1!opt12day.Value,=,True)
+						V.Local.sValue.Set("0.5000")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!opt23Day.Value,=,True)
+						V.Local.sValue.Set("1.0000")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optFullDay.Value,=,True)
+						V.Local.sValue.Set("1.0000")
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!DAY_LENGTH(V.Local.sValue)
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(5,V.Global.lRow,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Screen.Form1!optIncv.Value,=,True)
+						V.Local.sValue.Set("I")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optSwap.Value,=,True)
+						V.Local.sValue.Set("S")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optHol.Value,=,True)
+						V.Local.sValue.Set("H")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optOT.Value,=,True)
+						V.Local.sValue.Set("O")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optPerDiem.Value,=,True)
+						V.Local.sValue.Set("P")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optTravel.Value,=,True)
+						V.Local.sValue.Set("T")
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!optReg.Value,=,True)
+						V.Local.sValue.Set("R")
+					F.Intrinsic.Control.EndIf
+					F.ODBC.Con!rstX.Set!PAY_TYPE(V.Local.sValue)
+	
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(6,V.Global.lRow,V.Local.sValue)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!PAY_DATE(V.Screen.Form1!datepickerPayDte.Value)
+
+					F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,<>,True)
+						Gui.Form1.gsflexgrid1.TextMatrix(8,V.Global.lRow,V.Screen.Form1!datepickerPayDte.Value)
+					F.Intrinsic.Control.EndIf
+
+					F.ODBC.Con!rstX.Set!PAY_PERIOD_BEG(V.Screen.Form2!datepickerPayPrdFrm.Value)
+					F.ODBC.Con!rstX.Set!PAY_PERIOD_END(V.Screen.Form2!datepickerPayPrdThru.Value)
+					F.ODBC.Con!rstX.Set!PAID("")
+
+				F.ODBC.Con!rstX.Update
+			F.Intrinsic.Control.EndIf
+		F.ODBC.Con!rstX.Close
+
+
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+V.Global.lRow.Set(0)
+'F.Intrinsic.Control.CallSub(Cmdsubmit_click)
+'F.Intrinsic.Control.CallSub(Labortransfer)
+F.Intrinsic.Control.If(V.Screen.Form1!optIncv.Value,=,True)
+	F.Intrinsic.Control.CallSub(Vacationaccrual)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optSwap.Value,=,True)
+	F.Intrinsic.Control.CallSub(Vacationaccrual)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optReg.Value,=,True)
+	F.Intrinsic.Control.CallSub(Vacationaccrual)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Date.DateAdd("d",1,V.Screen.Form1!datepickerDteWkd.Value,V.Local.dDate)
+Gui.Form1.datepickerDteWkd.Value(V.Local.dDate)
+Gui.Form1.datepickerPayDte.Value(V.Local.dDate)
+
+Gui.Form1.optFullDay.Value(true)
+Gui.Form1.optIncv.Value(true)
+Gui.Form1.txtJob.Text("")
+Gui.Form1.txtSeq.Text("")
+Gui.Form1.txtSuff.Text("")
+
+V.Global.lRow.Set(0)
+Gui.Form1.gsflexgrid1.Enabled(true)
+
+
+program.sub.cmdok_click.end
+
+program.sub.optswap_click.start
+
+
+V.Local.dDateWrkd.Declare(Date)
+
+
+F.Intrinsic.Date.DateAdd("d",14,V.Screen.Form1!datepickerDteWkd.Value,V.Local.dDateWrkd)
+Gui.Form1.datepickerPayDte.Value(V.Local.dDateWrkd)
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(false)
+Gui.Form1.lblAmt.Visible(false)
+
+
+program.sub.optswap_click.end
+
+program.sub.gsflexgrid1_cellenter.start
+
+
+'key=row
+V.Local.sRet.Declare(String)
+V.Local.sDay.Declare(String)
+V.Local.sSwap.Declare(String)
+V.Local.sValue.Declare(String)
+
+
+
+V.Global.lRow.Set(V.Args.KEY)
+'Gui.Form1.gsflexgrid1.ReadRow(V.Args.KEY,V.Local.sRet)
+'F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+Gui.Form1.gsflexgrid1.GetTextMatrix(0,V.Global.lRow,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	Gui.Form1.txtEmplNo.Text(V.Local.sRet)
+	Gui.Form1.gsflexgrid1.GetTextMatrix(1,V.Global.lRow,V.Local.sValue)
+		Gui.Form1.txtName.Text(V.Local.sValue)
+	Gui.Form1.gsflexgrid1.GetTextMatrix(2,V.Global.lRow,V.Local.sValue)
+		Gui.Form1.txtJob.Text(V.Local.sValue)
+	Gui.Form1.gsflexgrid1.GetTextMatrix(3,V.Global.lRow,V.Local.sValue)
+		Gui.Form1.txtSuff.Text(V.Local.sValue)
+	Gui.Form1.gsflexgrid1.GetTextMatrix(4,V.Global.lRow,V.Local.sValue)
+		Gui.Form1.txtSeq.Text(V.Local.sValue)
+
+	Gui.Form1.gsflexgrid1.GetTextMatrix(5,V.Global.lRow,V.Local.sValue)
+		F.Intrinsic.Control.If(V.Local.sValue,=,"1.0000")
+			Gui.Form1.optFullDay.Value(true)
+		F.Intrinsic.Control.elseIf(V.Local.sValue,=,"1.0000")
+			Gui.Form1.opt23Day.Value(true)
+		F.Intrinsic.Control.elseIf(V.Local.sValue,=,"0.5000")
+			Gui.Form1.opt12day.Value(true)
+		F.Intrinsic.Control.EndIf
+
+	Gui.Form1.gsflexgrid1.GetTextMatrix(6,V.Global.lRow,V.Local.sValue)
+		F.Intrinsic.Control.If(V.Local.sValue,=,"I")
+			Gui.Form1.optIncv.Value(true)
+		F.Intrinsic.Control.elseIf(V.Local.sValue,=,"S")
+			Gui.Form1.optSwap.Value(True)
+		F.Intrinsic.Control.ElseIf(V.Local.sValue,=,"P")
+			Gui.Form1.optPerDiem.Value(True)
+		F.Intrinsic.Control.ElseIf(V.Local.sValue,=,"O")
+			Gui.Form1.optOT.Value(true)
+				Gui.Form1.gsflexgrid1.GetTextMatrix(5,V.Global.lRow,V.Local.sValue)
+				F.Intrinsic.String.Format(V.Local.sValue,"0.00",V.Local.sValue)
+			Gui.Form1.txtAmount.Text(V.Local.sValue)
+
+		F.Intrinsic.Control.ElseIf(V.Local.sValue,=,"H")
+			Gui.Form1.optHol.Value(True)
+		F.Intrinsic.Control.ElseIf(V.Local.sValue,=,"T")
+			Gui.Form1.optTravel.Value(True)
+		F.Intrinsic.Control.ElseIf(V.Local.sValue,=,"R")
+			Gui.Form1.optReg.Value(True)
+		F.Intrinsic.Control.EndIf
+
+	
+
+'F.Intrinsic.Control.If(V.Local.sRet(0),<>,"")
+'	Gui.Form1.txtEmplNo.Text(V.Local.sRet(0))
+'	Gui.Form1.txtName.Text(V.Local.sRet(1))
+'	Gui.Form1.txtJob.Text(V.Local.sRet(2))
+'	Gui.Form1.txtSuff.Text(V.Local.sRet(3))
+'	Gui.Form1.txtSeq.Text(V.Local.sRet(4))
+'
+'		F.Intrinsic.Control.If(V.Local.sRet(5),=,"1.0000")
+'	Gui.Form1.optFullDay.Value(true)
+'		F.Intrinsic.Control.elseIf(V.Local.sRet(5),=,"1.0000")
+'	Gui.Form1.opt23Day.Value(true)
+'		F.Intrinsic.Control.elseIf(V.Local.sRet(5),=,"0.5000")
+'	Gui.Form1.opt12day.Value(true)
+'		F.Intrinsic.Control.EndIf
+'
+'		F.Intrinsic.Control.If(V.Local.sRet(6),=,"I")
+'	Gui.Form1.optIncv.Value(true)
+'		F.Intrinsic.Control.elseIf(V.Local.sRet(6),=,"S")
+'	Gui.Form1.optSwap.Value(True)
+'		F.Intrinsic.Control.EndIf
+
+	Gui.Form1.gsflexgrid1.GetTextMatrix(7,V.Global.lRow,V.Local.sValue)
+		Gui.Form1.datepickerDteWkd.Value(V.Local.sValue)
+	Gui.Form1.gsflexgrid1.GetTextMatrix(8,V.Global.lRow,V.Local.sValue)
+		Gui.Form1.datepickerPayDte.Value(V.Local.sValue)
+F.Intrinsic.Control.EndIf
+
+
+program.sub.gsflexgrid1_cellenter.end
+
+program.sub.cmdempbrwse_click.start
+
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.lWidths.Declare(Long)
+
+
+F.Intrinsic.String.Split("Employee No*!*Name","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("2000*!*5000","*!*",V.Local.lWidths)
+
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Employee","con","select distinct EMPLOYEE,NAME from V_EMPLOYEE_MSTR where BOAT_EMPLOYEE='Y' order by EMPLOYEE",V.Local.sTitles,V.Local.lWidths,8000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			Gui.Form1.txtEmplNo.Text(V.Local.sRet(0))
+			Gui.Form1.txtName.Text(V.Local.sRet(1))
+	F.Intrinsic.Control.EndIf
+
+program.sub.cmdempbrwse_click.end
+
+program.sub.cmdwobrwse_click.start
+
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.lWidths.Declare(Long)
+
+Gui.Form1.gsflexgrid1.Enabled(false)
+
+F.Intrinsic.String.Split("Job*!*Suffix*!*Description","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*1000*!*5500","*!*",V.Local.lWidths)
+
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Job Sequence","con","select distinct JOB,SUFFIX,DESCRIPTION  from JOB_HEADER  order by JOB,SUFFIX",V.Local.sTitles,V.Local.lWidths,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			Gui.Form1.txtJob.Text(V.Local.sRet(0))
+			Gui.Form1.txtSuff.Text(V.Local.sRet(1))
+			Gui.Form1.txtSeq.Text("001000")
+	F.Intrinsic.Control.Else
+		Gui.Form1.gsflexgrid1.Enabled(True)
+	F.Intrinsic.Control.EndIf
+
+
+
+program.sub.cmdwobrwse_click.end
+
+program.sub.txtemplno_change.start
+
+V.Local.sSel.Declare(String)
+V.Local.lFor.Declare(Long)
+V.Local.lForRow.Declare(Long)
+V.Local.lRows.Declare(Long)
+V.Local.lCols.Declare(Long)
+V.Local.fRows.Declare(Float)
+
+V.Local.sBegDte.Declare(String)
+V.Local.sEndDate.Declare(String)
+
+F.Intrinsic.String.Format(V.Screen.Form2!datepickerPayPrdFrm.Value,"yyyy-mm-dd",V.Local.sBegDte)
+F.Intrinsic.String.Format(V.Screen.Form2!datepickerPayPrdThru.Value,"yyyy-mm-dd",V.Local.sEndDate)
+
+F.Intrinsic.String.Concat("select count(JOB) as C from ATG_3571_BOAT_TIMECLOCK where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between'",V.Local.sBegDte,"' and '",V.Local.sEndDate,"'  ",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstA",V.Local.sSel)
+	F.Intrinsic.Math.Add(V.ODBC.Con!rstA.FieldVal!C,1,V.Local.lRows)
+F.ODBC.Con!rstA.Close
+
+	Gui.Form1.gsflexgrid1.Rows(V.Local.lRows)
+		F.Intrinsic.Math.Sub(V.Local.lRows,1,V.Local.lRows)
+	F.Intrinsic.Control.For(V.Local.lFor,1,V.Local.lRows,1)
+		Gui.Form1.gsflexgrid1.ApplyStyle(V.Local.lFor,1)
+	F.Intrinsic.Control.Next(V.Local.lFor)
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtEmplNo.Text,<>,"")
+	F.Intrinsic.String.Concat("select EMPLOYEE,NAME,JOB,SUFFIX,SEQ,DAY_LENGTH,PAY_TYPE,DATE_WORKED, PAY_DATE,POSTED from ATG_BOAT_TIMECLOCK where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between'",V.Local.sBegDte,"' and '",V.Local.sEndDate,"' order by DATE_WORKED",V.Local.sSel)
+	F.ODBC.Connection!Con.OpenRecordsetRO("rstA",V.Local.sSel)
+		F.Intrinsic.Control.If(V.ODBC.Con!rstA.EOF,=,False)
+			Gui.Form1.gsflexgrid1.LoadRecordset("con!rstA",0,False)
+
+		F.Intrinsic.Control.Else
+			Gui.Form1.gsflexgrid1.Rows(2)
+			Gui.Form1.gsflexgrid1.FixedRows(1)
+			F.Intrinsic.Math.Sub(V.Screen.Form1!gsflexgrid1.Cols,1,V.Local.lCols)
+				F.Intrinsic.Control.For(V.Local.lFor,0,V.Local.lCols,1)
+					Gui.Form1.gsflexgrid1.TextMatrix(V.Local.lFor,1,"")
+				F.Intrinsic.Control.Next(V.Local.lFor)
+
+
+		F.Intrinsic.Control.EndIf
+	F.ODBC.Con!rstA.Close
+
+F.Intrinsic.Control.EndIf
+
+program.sub.txtemplno_change.end
+
+Program.Sub.Clear_Screen.Start
+
+V.Local.lRows.Declare(Long)
+V.Local.lFor.Declare(Long)
+
+Gui.Form1.datepickerDteWkd.Value(V.Screen.Form2!datepickerPayPrdFrm.Value)
+Gui.Form1.datepickerPayDte.Value(V.Screen.Form2!datepickerPayPrdFrm.Value)
+Gui.Form1.txtJob.Text("")
+Gui.Form1.txtSuff.Text("")
+Gui.Form1.txtSeq.Text("")
+Gui.Form1.optFullDay.Value(true)
+Gui.Form1.optIncv.Value(true)
+
+
+
+V.Global.lRow.Set(0)
+
+Program.Sub.Clear_Screen.End
+
+program.sub.cmddel_click.start
+
+V.Local.sDel.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.sType.Declare(String)
+V.Local.sValue.Declare(String)
+V.Local.iFor.Declare(Long)
+V.Local.iRows.Declare(Long)
+V.Local.sUpdate.Declare(String)
+V.Local.sDateFrm.Declare(String)
+V.Local.sDateThru.Declare(String)
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!optHol.Value,=,True)
+	V.Local.sType.Set("H")
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optIncv.Value,=,True)
+	V.Local.sType.Set("I")
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optOT.Value,=,True)
+	V.Local.sType.Set("O")
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optPerDiem.Value,=,True)
+	V.Local.sType.Set("P")
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optSwap.Value,=,True)
+	V.Local.sType.Set("S")
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!optTravel.Value,=,True)
+	V.Local.sType.Set("T")
+F.Intrinsic.Control.elseIf(V.Screen.Form1!optReg.Value,=,True)
+	V.Local.sType.Set("R")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Format(V.Screen.Form2!datepickerPayPrdFrm.Value,"yyyy-mm-dd",V.Local.sDateFrm)
+F.Intrinsic.String.Format(V.Screen.Form2!datepickerPayPrdThru.Value,"yyyy-mm-dd",V.Local.sDateThru)
+
+		F.Intrinsic.String.Concat("update ATG_3571_BOAT_TIMECLOCK set PAID='' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sDateFrm,"' and '",V.Local.sDateThru,"'",V.Local.sUpdate)
+		F.ODBC.Connection!Con.Execute(V.Local.sUpdate)
+
+F.Intrinsic.String.Format(V.Screen.Form1!datepickerDteWkd.Value,"yyyy-mm-dd",V.Local.sDate)
+F.Intrinsic.String.Concat("delete from ATG_3571_BOAT_TIMECLOCK where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and JOB='",V.Screen.Form1!txtJob.Text,"' and SUFFIX='",V.Screen.Form1!txtSuff.Text,"' and SEQ='",V.Screen.Form1!txtSeq.Text,"' and DATE_WORKED='",V.Local.sDate,"' and PAY_TYPE='",V.Local.sType,"'",V.Local.sDel)
+F.ODBC.Connection!Con.Execute(V.Local.sDel)
+
+F.Intrinsic.Control.CallSub(Clear_screen)
+F.Intrinsic.Control.CallSub(Txtemplno_change)
+
+
+program.sub.cmddel_click.end
+
+program.sub.cmdsubmit_click.start
+'
+''Gui.Form1.cmdSubmit.Enabled(false)
+'Gui.Form1.cmdCancel.Enabled(false)
+'Gui.Form1.cmdOk.Enabled(false)
+'
+'
+'V.Local.sFileName.Declare(String)
+'V.Local.sFile.Declare(String)
+'V.Local.sSel.Declare(String)
+'V.Local.sSelB.Declare(String)
+'V.Local.sSelC.Declare(String)
+'V.Local.sBegDte.Declare(String)
+'V.Local.sEndDte.Declare(String)
+'V.Local.sNewDte.Declare(String)
+'V.Local.sHireDte.Declare(String)
+'V.Local.sCheckDate.Declare(String)
+'V.Local.sPrdEndDte.Declare(String)
+'V.Local.sDel.Declare(String)
+'
+'V.Local.sEC.Declare(String)
+'V.Local.sPRate.Declare(String)
+'V.Local.sIRate.Declare(String)
+'V.Local.sDollars.Declare(String)
+'V.Local.sHours.Declare(String)
+'V.Local.sDept.Declare(String)
+'V.Local.srecord.Declare(String)
+'V.Local.sRet.Declare(String)
+'V.Local.sAnnDate.Declare(String)
+'V.Local.sY.Declare(String)
+'V.Local.sM.Declare(String)
+'V.Local.sD.Declare(String)
+'V.Local.sUpdate.Declare(String)
+'
+'V.Local.fPRate.Declare(Float)
+'V.Local.fIRate.Declare(Float)
+'V.Local.fDollars.Declare(Float)
+'V.Local.fHours.Declare(Float)
+'V.Local.fTotalDays.Declare(Float)
+'V.Local.fCount.Declare(Float)
+'
+'V.Local.sData.Declare(String)
+'
+'V.Local.lDIf.Declare(Long)
+'V.Local.lIDays.Declare(Long)
+'V.Local.lHndl.Declare(Long)
+'V.Local.lFor.Declare(Long)
+'V.Local.lCOls.Declare(Long)
+'V.Local.lRows.Declare(Long)
+'V.Local.lForB.Declare(Long)
+'V.Local.iCount.Declare(Long)
+'
+'V.Local.dHireDate.Declare(Date)
+'V.Local.dPrevDate.Declare(Date)
+'
+'V.Local.bHere.Declare(Boolean)
+'V.Local.bNoIncentiveDays.Declare(Boolean)
+'V.ulocal.uDay.Declare(Day)
+'
+'V.Local.bNoIncentiveDays.Set(False)
+'F.Intrinsic.String.Format(V.Screen.Form2!datepickerPayPrdFrm.Value,"yyyy-mm-dd",V.Local.sBegDte)
+'F.Intrinsic.String.Format(V.Screen.Form2!datepickerPayPrdThru.Value,"yyyy-mm-dd",V.Local.sEndDte)
+'F.Intrinsic.String.Concat(V.Caller.FilesDir,"\boatebi.txt",V.Local.sFileName)
+'
+'	F.Intrinsic.File.Exists(V.Local.sFileName,V.Local.bHere)
+'		F.Intrinsic.Control.If(V.Local.bHere,=,True)
+'			F.Intrinsic.File.DeleteFile(V.Local.sFileName)
+'		F.Intrinsic.Control.EndIf
+'
+'	F.Intrinsic.File.GetHandle(V.Local.lHndl)
+'	F.Intrinsic.File.OpenForWrite(V.Local.sFileName,V.Local.lHndl)
+'
+'F.Intrinsic.String.Format(V.Ambient.Date,"mmddyy",V.Local.sCheckDate)
+'F.Intrinsic.String.Format(V.Screen.Form2!datepickerPayPrdThru.Value,"mmddyy",V.Local.sPrdEndDte)
+'
+''---------------EMPLOYEE DEPT---------------
+'F.Intrinsic.String.Concat("select DEPT_EMPLOYEE,DATE_HIRE,RATE from V_EMPLOYEE_MSTR where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"'",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,False)
+'		V.Local.sDept.Set(V.ODBC.Con!rstX.FieldValTrim!DEPT_EMPLOYEE)
+'			F.Intrinsic.Date.Year(V.Ambient.Date,V.Local.sY)
+'			F.Intrinsic.Date.Month(V.ODBC.Con!rstX.FieldVal!DATE_HIRE,V.Local.sM)
+'				F.Intrinsic.String.LPad(V.Local.sM,"0",2,V.Local.sM)
+'			F.Intrinsic.Date.Day(V.ODBC.Con!rstX.FieldVal!DATE_HIRE,V.Local.sD)
+'				F.Intrinsic.String.LPad(V.Local.sD,"0",2,V.Local.sD)
+''		V.Local.dHireDate.Set(V.ODBC.ConEBI!rstA.FieldVal!DATE_HIRE)
+'		V.Local.fPRate.Set(V.ODBC.Con!rstX.FieldVal!RATE)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstX.Close
+'
+'F.Intrinsic.String.Format(V.Local.fPRate,"0.00",V.Local.sPRate)
+'F.Intrinsic.String.RPad(V.Local.sDept," ",4,V.Local.sDept)
+'F.Intrinsic.String.Concat(V.Local.sY,"-",V.Local.sM,"-",V.Local.sD,V.Local.sHireDte)
+'
+''------------------------------------------------------------
+'F.Intrinsic.String.Concat("select DAY_LENGTH,PAY_DATE from ATG_BOAT_TIMECLOCK where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' and PAY_TYPE='I' order by DATE_WORKED",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,False)
+'		F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstX","variable.ulocal.uDay",False,1)
+'	F.Intrinsic.Control.Else
+'		V.Local.bNoIncentiveDays.Set(True)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstX.Close
+'
+'F.Intrinsic.Control.If(V.Local.bNoIncentiveDays,=,False)
+'F.Intrinsic.Control.For(V.Local.lForB,V.uLocal.uDay!PayDate.LBound,V.uLocal.uDay!PayDate.UBound,1)
+'	F.Intrinsic.Control.If(V.Local.lForB,=,0)
+'		V.Local.dPrevDate.Set(V.uLocal.uDay(v.Local.lForB)!PayDate)
+'	F.Intrinsic.Control.EndIf
+'
+'	F.Intrinsic.Date.DateDiff("d",V.Local.dPrevDate,V.uLocal.uDay(v.Local.lForB)!PayDate,V.Local.iCount)
+'
+'	F.Intrinsic.Control.If(V.Local.iCount,<=,1)
+'		F.Intrinsic.Math.Add(V.Local.fCount,V.uLocal.uDay(v.Local.lForB)!Length,V.Local.fCount)
+'
+'	F.Intrinsic.Control.Else
+'		F.Intrinsic.Control.If(V.Local.fCount,<=,7)
+'			V.Local.fCount.Set(0)
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.Control.ExitFor(V.Local.lForB)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.EndIf
+'
+'	V.Local.dPrevDate.Set(V.uLocal.uDay(v.Local.lForB)!PayDate)
+'F.Intrinsic.Control.Next(V.Local.lForB)
+'
+'F.Intrinsic.Math.Sub(V.Local.fCount,7,V.Local.fCount)
+''-----------------------------incentivepay-----------------------
+'F.Intrinsic.Control.If(V.Local.fCount,>,0)
+'
+'	F.Intrinsic.String.Concat("select INCENTIVE_RATE from ATG_EMP_TITLE where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"'",V.Local.sSel)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,False)
+'			V.Local.fIRate.Set(V.ODBC.Con!rstX.FieldVal!INCENTIVE_RATE)
+'		F.Intrinsic.Control.EndIf
+'	F.ODBC.Con!rstX.Close
+'
+'
+'	'----------------write line---------------------------------------------
+'	V.Local.sEC.Set("06")
+'		F.Intrinsic.Math.Mult(V.Local.fIRate,V.Local.fCount,V.Local.fDollars)
+'			F.Intrinsic.String.Format(V.Local.fIRate,"0.00",V.Local.sIRate)
+'			F.Intrinsic.String.Format(V.Local.fDollars,"0.00",V.Local.sDollars)
+'			F.Intrinsic.String.Format(V.Local.fCount,"0.00",V.Local.sHours)
+'
+'	F.Intrinsic.String.Concat("select * from PAYROLL_TC_RATES where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='06' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sSelC)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstY",V.Local.sSelC)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstY.EOF,=,False)
+'
+'			F.Intrinsic.String.Concat("update PAYROLL_TC_RATES set HOURS_R_1='",V.Local.sHours,"' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='06' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sUpdate)
+'			F.ODBC.Connection!Con.Execute(V.Local.sUpdate)
+'		F.Intrinsic.Control.Else
+'
+'			F.Intrinsic.String.Concat(V.Screen.Form1!txtEmplNo.Text,"*!*1*!*",V.Local.sEC,"*!*",V.Local.sIRate,"*!*",V.Local.sDollars,"*!*0*!*0*!*",V.Local.sHours,"*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sIRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sIRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sdata)
+'			F.Intrinsic.File.WriteLine(V.Local.lHndl,V.Local.sData)
+'		F.Intrinsic.Control.endif
+'	F.ODBC.Con!rstY.Close
+'
+'F.Intrinsic.Control.EndIf
+'
+'F.Intrinsic.Control.EndIf
+''------------------------------reg hours record--------------------------------------------------
+'F.Intrinsic.Debug.Stop
+'F.Intrinsic.String.Concat("select sum(DAY_LENGTH) as C from ATG_BOAT_TIMECLOCK where (PAY_TYPE='I' or PAY_TYPE='S') and EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' ",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstX.FieldVal!C,<>,"")
+'		V.Local.fTotalDays.Set(V.ODBC.Con!rstX.FieldVal!C)
+'	F.Intrinsic.Control.Else
+'		V.Local.fTotalDays.Set(0)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstX.Close
+'
+'	F.Intrinsic.String.Concat("update ATG_BOAT_TIMECLOCK set PAID='Y' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' and PAY_TYPE='I' and PAID<>'Y'",V.Local.sSelB)
+'	F.ODBC.Connection!Con.Execute(V.Local.sSelB)
+'
+''------------------------------Travel hours record--------------------------------------------------
+'F.Intrinsic.Debug.Stop
+'F.Intrinsic.String.Concat("select sum(DAY_LENGTH) as C from ATG_BOAT_TIMECLOCK where PAY_TYPE='T' and EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' ",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstX.FieldVal!C,<>,"")
+'		F.Intrinsic.Math.Add(V.Local.fTotalDays,V.ODBC.Con!rstX.FieldVal!C,V.Local.fTotalDays)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstX.Close
+'
+'	F.Intrinsic.String.Concat("update ATG_BOAT_TIMECLOCK set PAID='Y' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' and PAY_TYPE='T' and PAID<>'Y'",V.Local.sSelB)
+'	F.ODBC.Connection!Con.Execute(V.Local.sSelB)
+'
+'
+'F.Intrinsic.Control.If(V.Local.fTotalDays,>,0)
+'	V.Local.sEC.Set("01")
+'		F.Intrinsic.Math.Mult(V.Local.fPRate,V.Local.fTotalDays,V.Local.fDollars)
+'			F.Intrinsic.String.Format(V.Local.fPRate,"0.00",V.Local.sPRate)
+'			F.Intrinsic.String.Format(V.Local.fDollars,"0.00",V.Local.sDollars)
+'			F.Intrinsic.String.Format(V.Local.fTotalDays,"0.00",V.Local.sHours)
+'
+'
+'	F.Intrinsic.String.Concat("select * from PAYROLL_TC_RATES where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='01' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sSelC)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstY",V.Local.sSelC)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstY.EOF,=,False)
+'
+'
+'			F.Intrinsic.String.Concat("update PAYROLL_TC_RATES set HOURS_R_1='",V.Local.sHours,"' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='01' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sUpdate)
+'			F.ODBC.Connection!Con.Execute(V.Local.sUpdate)
+'
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.String.Concat(V.Screen.Form1!txtEmplNo.Text,"*!*1*!*",V.Local.sEC,"*!*",V.Local.sPRate,"*!*",V.Local.sDollars,"*!*0*!*0*!*",V.Local.sHours,"*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sPRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sPRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sdata)
+'			F.Intrinsic.File.WriteLine(V.Local.lHndl,V.Local.sData)
+'		F.Intrinsic.Control.EndIf
+'	F.ODBC.Con!rstY.Close
+'
+'F.Intrinsic.Control.EndIf
+'
+'
+''------------------------------Holiday hours record--------------------------------------------------
+'F.Intrinsic.Debug.Stop
+'F.Intrinsic.String.Concat("select sum(DAY_LENGTH) as C from ATG_BOAT_TIMECLOCK where PAY_TYPE='H' and EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' ",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstX.FieldVal!C,<>,"")
+'		V.Local.fTotalDays.Set(V.ODBC.Con!rstX.FieldVal!C)
+'	F.Intrinsic.Control.Else
+'		V.Local.fTotalDays.Set(0)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstX.Close
+'
+'	F.Intrinsic.String.Concat("update ATG_BOAT_TIMECLOCK set PAID='Y' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' and PAY_TYPE='H' and PAID<>'Y'",V.Local.sSelB)
+'	F.ODBC.Connection!Con.Execute(V.Local.sSelB)
+'
+'
+'F.Intrinsic.Control.If(V.Local.fTotalDays,>,0)
+'	V.Local.sEC.Set("04")
+'		F.Intrinsic.Math.Mult(V.Local.fPRate,V.Local.fTotalDays,V.Local.fDollars)
+'			F.Intrinsic.String.Format(V.Local.fPRate,"0.00",V.Local.sPRate)
+'			F.Intrinsic.String.Format(V.Local.fDollars,"0.00",V.Local.sDollars)
+'			F.Intrinsic.String.Format(V.Local.fTotalDays,"0.00",V.Local.sHours)
+'
+'
+'	F.Intrinsic.String.Concat("select * from PAYROLL_TC_RATES where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='04' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sSelC)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstY",V.Local.sSelC)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstY.EOF,=,False)
+'
+'
+'			F.Intrinsic.String.Concat("update PAYROLL_TC_RATES set HOURS_R_1='",V.Local.sHours,"' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='04' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sUpdate)
+'			F.ODBC.Connection!Con.Execute(V.Local.sUpdate)
+'
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.String.Concat(V.Screen.Form1!txtEmplNo.Text,"*!*1*!*",V.Local.sEC,"*!*",V.Local.sPRate,"*!*",V.Local.sDollars,"*!*0*!*0*!*",V.Local.sHours,"*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sPRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sPRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sdata)
+'			F.Intrinsic.File.WriteLine(V.Local.lHndl,V.Local.sData)
+'		F.Intrinsic.Control.EndIf
+'	F.ODBC.Con!rstY.Close
+'F.Intrinsic.Control.EndIf
+'
+'
+''------------------------------OT amount record--------------------------------------------------
+'
+'F.Intrinsic.String.Concat("select sum(DAY_LENGTH) as C from ATG_BOAT_TIMECLOCK where PAY_TYPE='O' and EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' ",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstX.FieldVal!C,<>,"")
+'		V.Local.fTotalDays.Set(V.ODBC.Con!rstX.FieldVal!C)
+'	F.Intrinsic.Control.Else
+'		V.Local.fTotalDays.Set(0)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstX.Close
+'
+'	F.Intrinsic.String.Concat("update ATG_BOAT_TIMECLOCK set PAID='Y' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' and PAY_TYPE='O' and PAID<>'Y'",V.Local.sSelB)
+'	F.ODBC.Connection!Con.Execute(V.Local.sSelB)
+'
+'F.Intrinsic.Control.If(V.Local.fTotalDays,>,0)
+'	V.Local.sEC.Set("09")
+'
+'			F.Intrinsic.String.Format(V.Local.fTotalDays,"0.00",V.Local.sDollars)
+'
+'	F.Intrinsic.String.Concat("select * from PAYROLL_TC_RATES where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='09' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sSelC)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstY",V.Local.sSelC)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstY.EOF,=,False)
+'
+'			F.Intrinsic.String.Concat("update PAYROLL_TC_RATES set REG_DOLLARS_1='",V.Local.sDollars,"' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='09' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sUpdate)
+'			F.ODBC.Connection!Con.Execute(V.Local.sUpdate)
+'
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.String.Concat(V.Screen.Form1!txtEmplNo.Text,"*!*1*!*",V.Local.sEC,"*!*",0,"*!*",V.Local.sDollars,"*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",0,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",0,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sdata)
+'			F.Intrinsic.File.WriteLine(V.Local.lHndl,V.Local.sData)
+'		F.Intrinsic.Control.EndIf
+'	F.ODBC.Con!rstY.Close
+'
+'F.Intrinsic.Control.EndIf
+''------------------------------Per Diem hours record--------------------------------------------------
+'F.Intrinsic.Debug.Stop
+'
+'F.Intrinsic.String.Concat("select sum(DAY_LENGTH) as C from ATG_BOAT_TIMECLOCK where PAY_TYPE='P' and EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' ",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstX.FieldVal!C,<>,"")
+'		V.Local.fTotalDays.Set(V.ODBC.Con!rstX.FieldVal!C)
+'	F.Intrinsic.Control.Else
+'		V.Local.fTotalDays.Set(0)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstX.Close
+'
+'	F.Intrinsic.String.Concat("update ATG_BOAT_TIMECLOCK set PAID='Y' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and PAY_DATE between '",V.Local.sBegDte,"' and '",V.Local.sEndDte,"' and PAY_TYPE='P' and PAID<>'Y' ",V.Local.sSelB)
+'	F.ODBC.Connection!Con.Execute(V.Local.sSelB)
+'
+'F.Intrinsic.Control.If(V.Local.fTotalDays,>,0)
+'	V.Local.sEC.Set("05")
+'
+'		F.Intrinsic.Math.Mult(15,V.Local.fTotalDays,V.Local.fDollars)
+'			F.Intrinsic.String.Format(V.Local.fDollars,"0.00",V.Local.sDollars)
+'			F.Intrinsic.String.Format(V.Local.fTotalDays,"0.00",V.Local.sHours)
+'
+'
+'	F.Intrinsic.String.Concat("select * from PAYROLL_TC_RATES where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='05' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",V.Local.sSelC)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstY",V.Local.sSelC)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstY.EOF,=,False)
+'
+'
+'			F.Intrinsic.String.Concat("update PAYROLL_TC_RATES set HOURS_R_1='",V.Local.sHours,"' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='05' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",,V.Local.sUpdate)
+'			F.ODBC.Connection!Con.Execute(V.Local.sUpdate)
+'
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.String.Concat(V.Screen.Form1!txtEmplNo.Text,"*!*1*!*",V.Local.sEC,"*!*",15,"*!*",V.Local.sDollars,"*!*0*!*0*!*",V.Local.sHours,"*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",15,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",15,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sdata)
+'			F.Intrinsic.File.WriteLine(V.Local.lHndl,V.Local.sData)
+'		F.Intrinsic.Control.EndIf
+'	F.ODBC.Con!rstY.Close
+'F.Intrinsic.Control.EndIf
+'
+''---------------------------Vacation pay----------------------------------------------------------
+'	'------------------is it a hire date anniversary?-------------------------------
+'F.Intrinsic.Control.If(V.Local.sHireDte,>=,V.Local.sBegDte)
+'F.Intrinsic.Control.AndIf(V.Local.sHireDte,<=,V.Local.sEndDte)
+'
+'	F.Intrinsic.String.Concat("select TOTAL from ATG_EMP_VACATION_PAY where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' order by DATE_WORKED desc",V.Local.sSel)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,False)
+'			F.Intrinsic.String.Format(V.ODBC.Con!rstX.FieldVal!TOTAL,"0.00",V.Local.sDollars)
+'		F.Intrinsic.Control.EndIf
+'	F.ODBC.Con!rstX.Close
+'
+'	F.Intrinsic.String.Concat("update ATG_EMP_VACATION_PAY set PAID='Y' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"'",V.Local.sSel)
+'	F.ODBC.Connection!Con.Execute(V.Local.sSel)
+'
+'	'----------------write line---------------------------------------------
+'F.Intrinsic.Control.If(V.Local.fIRate,>,0)
+'	V.Local.sEC.Set("03")
+'
+'	F.Intrinsic.String.Concat("select * from PAYROLL_TC_RATES where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='03' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",,V.Local.sSelC)
+'	F.ODBC.Connection!Con.OpenRecordsetRO("rstY",V.Local.sSelC)
+'		F.Intrinsic.Control.If(V.ODBC.Con!rstY.EOF,=,False)
+'
+'			F.Intrinsic.String.Concat("update PAYROLL_TC_RATES set REG_DOLLARS_1='",V.Local.sDollars,"' where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='06' and ERN_CHECK_PER_END='",V.Local.sPrdEndDte,"'",,V.Local.sUpdate)
+'			F.ODBC.Connection!Con.Execute(V.Local.sUpdate)
+'
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.String.Concat(V.Screen.Form1!txtEmplNo.Text,"*!*1*!*",V.Local.sEC,"*!*",0,"*!*",V.Local.sDollars,"*!*0*!*0*!*",V.Local.sHours,"*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",0,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",0,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sdata)
+'			F.Intrinsic.File.WriteLine(V.Local.lHndl,V.Local.sData)
+'		F.Intrinsic.Control.EndIf
+'	F.ODBC.Con!rstY.Close
+'F.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.EndIf
+'
+'F.Intrinsic.File.CloseFile(V.Local.lHndl)
+'
+'
+'F.Intrinsic.Control.If(V.Local.sData,<>,"")
+'
+'	F.Intrinsic.String.Concat("delete from PAYROLL_TC_RATES where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"' and EARNINGS='DD'",V.Local.sDel)
+'	F.ODBC.Connection!Con.Execute(V.Local.sDel)
+'
+''	F.Intrinsic.String.Concat(V.Ambient.DblQuote,"HLB",V.Local.sFileName,V.Ambient.DblQuote,V.Local.sFile)
+'	F.Intrinsic.String.Concat(V.Ambient.DblQuote,V.Caller.CompanyCode,V.Local.sFileName,V.Ambient.DblQuote,V.Local.sFile)
+'	F.Intrinsic.Task.LaunchGSSSync("XUPLDEBI","-C",V.Local.sFile)
+'F.Intrinsic.Control.EndIf
+'
+'F.Intrinsic.Math.Sub(V.Screen.Form1!gsflexgrid1.Rows,2,V.Local.lRows)
+'F.Intrinsic.Control.For(V.Local.lFor,1,V.Local.lRows,1)
+'	Gui.Form1.gsflexgrid1.TextMatrix(9,V.Local.lFor,"Y")
+'F.Intrinsic.Control.Next(V.Local.lFor)
+'
+'
+'
+'Gui.Form1.txtJob.Text("")
+'Gui.Form1.txtSeq.Text("")
+'Gui.Form1.txtSuff.Text("")
+'Gui.Form1.optFullDay.Value(true)
+'Gui.Form1.optIncv.Value(true)
+'
+'
+''Gui.Form1.cmdSubmit.Enabled(true)
+'Gui.Form1.cmdCancel.Enabled(true)
+'Gui.Form1.cmdOk.Enabled(true)
+''Gui.Form1.txtEmplNo.Text("")
+'
+'
+
+program.sub.cmdsubmit_click.end
+
+program.sub.optincv_click.start
+
+Gui.Form1.datepickerPayDte.Value(V.Screen.Form1!datepickerDteWkd.Value)
+
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(false)
+Gui.Form1.lblAmt.Visible(false)
+
+
+program.sub.optincv_click.end
+
+Program.Sub.VacationAccrual.Start
+
+V.Local.fTotal.Declare(Float)
+V.Local.fRate.Declare(Float)
+V.Local.sSel.Declare(String)
+V.Local.sSelB.Declare(String)
+V.Local.sEmp.Declare(String)
+V.Local.sName.Declare(String)
+V.Local.sTitle.Declare(String)
+V.Local.lDays.Declare(Long)
+V.Local.lConsDays.Declare(Long)
+V.Local.sValue.Declare(String)
+
+F.Intrinsic.String.Trim(V.Screen.Form1!txtEmplNo.Text,V.Local.sEmp)
+F.Intrinsic.String.Trim(V.Screen.Form1!txtName.Text,V.Local.sName)
+
+F.Intrinsic.String.Concat("select * from ATG_EMP_TITLE where EMPLOYEE='",V.Screen.Form1!txtEmplNo.Text,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstX.EOF,=,False)
+		V.Local.sTitle.Set(V.ODBC.Con!rstX.FieldValTrim!TITLE)
+	F.Intrinsic.Control.Else
+		V.Local.sTitle.set("")
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstX.Close
+
+V.Local.fRate.Set(5)
+F.Intrinsic.Control.If(V.Screen.Form1!opt12day.Value,=,True)
+	F.Intrinsic.Math.Div(V.Local.fRate,2,V.Local.fRate)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat("select sum(Vac_Pay_Earned) as Total from ATG_3571_EMP_VACATION_PAY  where EMPLOYEE='",V.Local.sEmp.UCase,"' and PAID <>'Y' and date_worked<'",v.Screen.Form1!datepickerDteWkd.Value.pervasivedate,"' ",V.Local.sSelB)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstA",V.Local.sSelB)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstA.EOF,=,False)
+		V.Local.sValue.Set(V.ODBC.Con!rstA.FieldValtrim!TOTAL)
+		F.Intrinsic.Control.If(V.Local.sValue.Trim,<>,"")
+			V.Local.fTotal.Set(V.ODBC.Con!rstA.FieldValFloat!TOTAL)
+		F.Intrinsic.Control.Else
+			V.Local.fTotal.Set(0)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstA.Close
+
+F.Intrinsic.Math.Add(V.Local.fTotal,V.Local.fRate,V.Local.fTotal)
+
+F.Intrinsic.String.Concat("delete from ATG_3571_EMP_VACATION_PAY  where EMPLOYEE='",V.Local.sEmp.UCase,"' and PAID <>'Y' and date_worked='",v.Screen.Form1!datepickerDteWkd.Value.pervasivedate,"' ",V.Local.sSelB)
+F.ODBC.Connection!Con.Execute(V.Local.sSelB)
+
+F.Intrinsic.String.Concat("select Employee, Name, Title, Pay_Rate, Date_Worked, EC, Paid, Total, Vac_Pay_Earned from ATG_EMP_VACATION_PAY where PAID <>'Y' and EMPLOYEE='",V.Local.sEmp.UCase,"' and date_worked='",v.Screen.Form1!datepickerDteWkd.Value.pervasivedate,"' ",V.Local.sSelB)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstA",V.Local.sSelB)
+	F.ODBC.Con!rstA.AddNew
+		F.ODBC.Con!rstA.Set!EMPLOYEE(V.Local.sEmp)
+		F.ODBC.Con!rstA.Set!NAME(V.Local.sName)
+		F.ODBC.Con!rstA.Set!TITLE(V.Local.sTitle)
+		F.ODBC.Con!rstA.Set!PAY_RATE(V.Local.fRate)
+		F.ODBC.Con!rstA.Set!DATE_WORKED(V.Screen.Form1!datepickerDteWkd.Value)
+		F.ODBC.Con!rstA.Set!EC("BV")
+		F.ODBC.Con!rstA.Set!PAID("")
+		F.ODBC.Con!rstA.Set!TOTAL(V.Local.fTotal)
+		F.ODBC.Con!rstA.Set!VAC_PAY_EARNED(V.Local.fRate)
+	F.ODBC.Con!rstA.Update
+F.ODBC.Con!rstA.Close
+
+
+'F.Intrinsic.String.Concat("select sum(Vac_Pay_Earned) as TOTAL from ATG_EMP_VACATION_PAY  where EMPLOYEE='",V.Local.sEmp.UCase,"'and PAID <>'Y' ",V.Local.sSelB)
+'F.ODBC.Connection!Con.OpenRecordsetRO("rstA",V.Local.sSelB)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstA.EOF,=,False)
+'		V.Local.fTotal.Set(V.ODBC.Con!rstA.FieldValFloat!TOTAL)
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstA.Close
+
+'F.Intrinsic.String.Concat("select * from ATG_EMP_VACATION_PAY where EMPLOYEE='",V.Local.sEmp.UCase,"' order by Date_Worked desc",V.Local.sSelB)
+'F.ODBC.Connection!Con.OpenRecordsetRW("rstA",V.Local.sSelB)
+'	F.Intrinsic.Control.If(V.ODBC.Con!rstA.EOF,=,False)
+'			F.ODBC.Con!rstA.Set!TOTAL(V.Local.fTotal)
+'		F.ODBC.Con!rstA.Update
+'	F.Intrinsic.Control.EndIf
+'F.ODBC.Con!rstA.Close
+
+Program.Sub.VacationAccrual.End
+
+program.sub.datepickerdtewkd_change.start
+
+
+V.Local.dDateVal.Declare(Date)
+V.Local.dDteWrkd.Declare(Date)
+
+
+V.Local.dDteWrkd.Set(V.Screen.Form1!datepickerDteWkd.Value)
+
+F.Intrinsic.Control.If(V.Screen.Form1!optSwap.Value,=,True)
+	F.Intrinsic.Date.DateAdd("D",13,V.Local.dDteWrkd,V.Local.dDateVal)
+	Gui.Form1.datepickerPayDte.Value(V.Local.dDateVal)
+F.Intrinsic.Control.Else
+	Gui.Form1.datepickerPayDte.Value(V.Screen.Form1!datepickerDteWkd.Value)
+F.Intrinsic.Control.EndIf
+
+program.sub.datepickerdtewkd_change.end
+
+program.sub.cmdcancel_click.start
+
+
+
+'Gui.Form1.datepickerDteWkd.Value(V.Screen.Form2!datepickerPayPrdFrm.Value)
+'Gui.Form1.datepickerPayDte.Value(V.Screen.Form2!datepickerPayPrdFrm.Value)
+'Gui.Form1.txtEmplNo.Text("")
+'Gui.Form1.txtName.Text("")
+Gui.Form1.txtJob.Text("")
+Gui.Form1.txtSuff.Text("")
+Gui.Form1.txtSeq.Text("")
+Gui.Form1.optFullDay.Value(true)
+Gui.Form1.optIncv.Value(true)
+Gui.Form1.gsflexgrid1.Enabled(True)
+V.Global.lRow.Set(0)
+
+program.sub.cmdcancel_click.end
+
+Program.Sub.LaborTransfer.Start
+
+Gui.Form1.cmdJobUpdate.Enabled(false)
+
+V.Local.sFile.Declare(String)
+V.Local.sTimeIn.Declare(String)
+V.Local.sTimeOut.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sEmployee.Declare(String)
+V.Local.sWO.Declare(String)
+V.Local.sWc.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.sLine.Declare(String)
+V.Local.sHours.Declare(String)
+V.Local.sSel.Declare(String)
+V.Local.sRowData.Declare(String)
+V.Local.sDateWrkd.Declare(String)
+V.Local.lRows.Declare(Long)
+V.Local.lFor.Declare(Long)
+
+
+
+
+V.Local.sWO.RedimPreserve(0,1)
+
+F.Intrinsic.String.Trim(V.Screen.Form1!txtEmplNo.Text,V.Local.sEmployee)
+'V.Local.sWO(1).Set(V.Screen.Form1!txtSuff.Text)
+'V.Local.sWO(0).Set(V.Screen.Form1!txtJob.Text)
+'F.Intrinsic.String.Format(V.Screen.Form1!datepickerDteWkd.Value,"mmddyy",V.Local.sDate)
+V.Local.sTimeIn.Set("0100  ")
+
+F.Intrinsic.Math.Sub(V.Screen.Form1!gsflexgrid1.Rows,2,V.Local.lRows)
+
+
+F.Intrinsic.Control.For(V.Local.lFor,1,V.Local.lRows,1)
+	Gui.Form1.gsflexgrid1.ReadRow(V.Local.lFor,V.Local.sRowData)
+	F.Intrinsic.String.Split(V.Local.sRowData,"*!*",V.Local.sRowData)
+
+	F.Intrinsic.Control.If(V.Local.sRowData(9),<>,"Y")
+		V.Local.sWO(0).Set(V.Local.sRowData(2))
+		V.Local.sWO(1).Set(V.Local.sRowData(3))
+		F.Intrinsic.String.Format(V.Local.sRowData(7),"mmddyy",V.Local.sDate)
+		F.Intrinsic.String.Format(V.Local.sRowData(7),"yyyy-mm-dd",V.Local.sDateWrkd)
+		'F.Intrinsic.Control.If(V.Screen.Form1!opt12day.Value,=,True)
+		F.Intrinsic.Control.If(V.Local.sRowData(5),=,"0.5000")
+			V.Local.sTimeOut.Set("0700  ")
+			V.Local.sHours.Set("0.50")
+		'F.Intrinsic.Control.Else
+		F.Intrinsic.Control.elseIf(V.Local.sRowData(5),=,"1.0000")
+			V.Local.sTimeOut.Set("1300  ")
+			V.Local.sHours.Set("1.00")
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.String.Concat("update ATG_3571_BOAT_TIMECLOCK set POSTED='Y'  where EMPLOYEE='",V.Local.sRowData(0),"' and JOB='",V.Local.sWO(0),"' and SUFFIX='",V.Local.sWO(1),"' and SEQ='001000' and DATE_WORKED='",V.Local.sDateWrkd,"'",V.Local.sSel)
+		F.ODBC.Connection!Con.Execute(V.Local.sSel)
+
+		F.Intrinsic.String.Concat("select PART from JOB_OPERATIONS where JOB='",V.Local.sWO(0),"' and SUFFIX='",V.Local.sWO(1),"' and SEQ='001000'",V.Local.sSel)
+		F.ODBC.Connection!Con.OpenRecordsetRO("rstS",V.Local.sSel)
+			F.Intrinsic.Control.If(V.ODBC.Con!rstS.EOF,=,False)
+				V.Local.sWc.Set(V.ODBC.Con!rstS.FieldValTrim!PART)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.Con!rstS.Close
+
+		F.Intrinsic.String.Concat("select PROTOTYPE_WC from WORKGROUP_HEAD where WORK_GROUP='",V.Local.sWc.Trim,"'",V.Local.sSel)
+		F.ODBC.Connection!Con.OpenRecordsetRO("rstS",V.Local.sSel)
+			F.Intrinsic.Control.If(V.ODBC.Con!rstS.EOF,=,False)
+				V.Local.sWc.Set(V.ODBC.Con!rstS.FieldValTrim!PROTOTYPE_WC)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.Con!rstS.Close
+
+		
+		F.Intrinsic.string.Concat(V.local.sLine,V.Local.sDate,V.Ambient.Tab,V.Local.semployee,V.Ambient.Tab,V.Local.sWO(0),V.Ambient.Tab,V.Local.sWO(1),V.Ambient.Tab,"001000",V.Ambient.tab,V.Local.sWc,V.Ambient.tab,V.Local.sLine)
+		F.Intrinsic.String.Concat(V.Local.sLine,V.Local.sHours,V.Ambient.Tab,"",V.Ambient.tab,"D",V.Ambient.tab,V.Local.sTimeIn,V.Ambient.Tab,V.Local.sTimeOut,V.Ambient.tab,"L",V.Ambient.Tab,"000000000.000",V.Ambient.Tab,"000000000.000",V.Ambient.Tab,"0",V.Ambient.tab,V.Ambient.NewLine,V.Local.sLine)
+
+	F.Intrinsic.Control.EndIf
+		Gui.Form1.gsflexgrid1.TextMatrix(9,V.Local.lFor,"Y")
+
+F.Intrinsic.Control.Next(V.Local.lFor)
+
+F.Intrinsic.Control.If(V.Local.sLine,<>,"")
+	F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,V.Caller.Terminal,"MOPEN.txt",V.Local.sFile)
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sLine)
+
+	F.Intrinsic.String.Concat(V.Ambient.DblQuote,V.Caller.CompanyCode,V.Caller.Terminal,"MOPEN.txt",V.Ambient.DblQuote,V.Local.sFile)
+	F.Intrinsic.Task.LaunchGSSSync("JB0455","-C",V.Local.sFile)
+F.Intrinsic.Control.EndIf
+
+Gui.Form1.cmdJobUpdate.Enabled(true)
+
+Program.Sub.LaborTransfer.End
+
+program.sub.cmdpayperiodok_click.start
+
+V.Local.lRows.Declare(Long)
+V.Local.lFor.Declare(Long)
+
+Gui.Form2..Visible(false)
+
+Gui.Form1.optFullDay.Value(1)
+Gui.Form1.optIncv.Value(1)
+'Gui.Form1.cmdDel.Enabled(false)
+
+Gui.Form1.gsflexgrid1.Cols(10)
+Gui.Form1.gsflexgrid1.Rows(2)
+
+Gui.Form1.gsflexgrid1.ColWidth(0,1300)
+Gui.Form1.gsflexgrid1.ColWidth(1,2500)
+Gui.Form1.gsflexgrid1.ColWidth(2,700)
+Gui.Form1.gsflexgrid1.ColWidth(3,600)
+Gui.Form1.gsflexgrid1.ColWidth(4,700)
+Gui.Form1.gsflexgrid1.ColWidth(6,500)
+Gui.Form1.gsflexgrid1.ColWidth(5,1500)
+Gui.Form1.gsflexgrid1.ColWidth(7,1000)
+Gui.Form1.gsflexgrid1.ColWidth(8,1000)
+Gui.Form1.gsflexgrid1.ColWidth(9,600)
+
+Gui.Form1.gsflexgrid1.TextMatrix(0,0,"Emp No")
+Gui.Form1.gsflexgrid1.TextMatrix(1,0,"Name")
+Gui.Form1.gsflexgrid1.TextMatrix(2,0,"Job")
+Gui.Form1.gsflexgrid1.TextMatrix(3,0,"Suffix")
+Gui.Form1.gsflexgrid1.TextMatrix(4,0,"Seq")
+Gui.Form1.gsflexgrid1.TextMatrix(7,0,"Date Wrkd")
+Gui.Form1.gsflexgrid1.TextMatrix(6,0,"Type")
+Gui.Form1.gsflexgrid1.TextMatrix(5,0,"Length/Amount")
+Gui.Form1.gsflexgrid1.TextMatrix(8,0,"Pay Date")
+Gui.Form1.gsflexgrid1.TextMatrix(9,0,"Posted")
+
+Gui.Form1.gsflexgrid1.BuildStyle(1,0,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,1,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,2,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,3,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,4,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,5,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,6,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,7,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,8,"Type","Locked",True)
+Gui.Form1.gsflexgrid1.BuildStyle(1,9,"Type","Locked",True)
+
+Gui.Form1.gsflexgrid1.FixedRows(1)
+Gui.Form1.gsflexgrid1.Rows(2)
+
+'	F.Intrinsic.Math.Sub(V.Screen.Form1!gsflexgrid1.Rows,1,V.Local.lRows)
+'	F.Intrinsic.Control.For(V.Local.lFor,1,V.Local.lRows,1)
+'		Gui.Form1.gsflexgrid1.ApplyStyle(V.Local.lFor,1)
+'	F.Intrinsic.Control.Next(V.Local.lFor)
+
+Gui.Form1.datepickerPayDte.Value(V.Screen.Form2!datepickerPayPrdFrm.Value)
+Gui.Form1.datepickerDteWkd.Value(V.Screen.Form2!datepickerPayPrdFrm.Value)
+
+Gui.Form1..Show
+
+program.sub.cmdpayperiodok_click.end
+
+program.sub.datepickerpayprdfrm_change.start
+
+V.Local.dDateThru.Declare(Date)
+V.Local.dDateFrm.Declare(Date)
+
+V.Local.dDateFrm.Set(V.Screen.Form2!datepickerPayPrdFrm.Value)
+
+F.Intrinsic.Date.DateAdd("D",13,V.Local.dDateFrm,V.Local.dDateThru)
+
+Gui.Form2.datepickerPayPrdThru.Value(V.Local.dDateThru)
+
+program.sub.datepickerpayprdfrm_change.end
+
+Program.Sub.IncentivePay.Start
+
+V.Local.lDaysWrkd.Declare(Long)
+V.Local.fIncvPay.Declare(Float)
+
+
+Program.Sub.IncentivePay.End
+
+program.sub.form1_unload.start
+
+V.Local.lfor.Declare(Long)
+
+Gui.Form1..Visible(false)
+Gui.Form2..Visible(true)
+
+F.Intrinsic.Control.CallSub(Clear_screen)
+Gui.Form1.txtEmplNo.Text("")
+Gui.Form1.txtName.Text("")
+
+
+Gui.Form1.gsflexgrid1.Rows(2)
+Gui.Form1.gsflexgrid1.FixedRows(1)
+	F.Intrinsic.Control.For(V.Local.lfor,0,8,1)
+		Gui.Form1.gsflexgrid1.TextMatrix(V.Local.lFor,1,"")
+	F.Intrinsic.Control.Next(V.Local.lFor)
+
+
+program.sub.form1_unload.end
+
+program.sub.optperdeim_click.start
+
+
+
+
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(False)
+Gui.Form1.lblAmt.Visible(false)
+
+
+
+program.sub.optperdeim_click.end
+
+program.sub.optot_click.start
+
+
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(True)
+Gui.Form1.lblAmt.Visible(True)
+
+
+program.sub.optot_click.end
+
+program.sub.opthol_click.start
+
+
+
+
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(False)
+Gui.Form1.lblAmt.Visible(false)
+
+
+
+program.sub.opthol_click.end
+
+program.sub.opttravel_click.start
+
+
+
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(False)
+Gui.Form1.lblAmt.Visible(false)
+
+
+
+program.sub.opttravel_click.end
+
+program.sub.optreg_click.start
+
+Gui.Form1.txtAmount.Text("")
+Gui.Form1.txtAmount.Visible(False)
+Gui.Form1.lblAmt.Visible(false)
+
+program.sub.optreg_click.end
+
+
