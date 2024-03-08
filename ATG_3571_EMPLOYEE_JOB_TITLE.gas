@@ -1,0 +1,202 @@
+Program.Sub.ScreenSU.Start
+gui.Form1..create
+gui.Form1..caption("ATG Employee Job Title Maintenance")
+gui.Form1..size(5985,4065)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,Unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(True)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+gui.Form1.txtEmpNo.create(textbox,"",True,1215,300,0,300,600,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtEmpNo.event(change,txtempno_change)
+gui.Form1.txtEmpNo.maxLength(5)
+gui.Form1.cmdEmoBrwse.create(button)
+gui.Form1.cmdEmoBrwse.caption("^")
+gui.Form1.cmdEmoBrwse.visible(True)
+gui.Form1.cmdEmoBrwse.size(330,300)
+gui.Form1.cmdEmoBrwse.zorder(0)
+gui.Form1.cmdEmoBrwse.position(1505,600)
+gui.Form1.cmdEmoBrwse.enabled(True)
+gui.Form1.cmdEmoBrwse.fontname("Arial")
+gui.Form1.cmdEmoBrwse.fontsize(8)
+gui.Form1.cmdEmoBrwse.event(click,cmdemobrwse_click)
+gui.Form1.txtName.create(textbox,"",True,3255,300,0,2150,615,False,0,Arial,8,-2147483643,1)
+gui.Form1.txtName.maxLength(30)
+gui.Form1.txtTitle.create(textbox,"",True,5070,300,0,300,1385,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtTitle.maxLength(30)
+gui.Form1.cmdSave.create(button)
+gui.Form1.cmdSave.caption("Save")
+gui.Form1.cmdSave.visible(True)
+gui.Form1.cmdSave.size(855,375)
+gui.Form1.cmdSave.zorder(0)
+gui.Form1.cmdSave.position(4200,2885)
+gui.Form1.cmdSave.enabled(True)
+gui.Form1.cmdSave.fontname("Arial")
+gui.Form1.cmdSave.fontsize(8)
+gui.Form1.cmdSave.event(click,cmdsave_click)
+gui.Form1.cmdClear.create(button)
+gui.Form1.cmdClear.caption("Clear")
+gui.Form1.cmdClear.visible(True)
+gui.Form1.cmdClear.size(855,375)
+gui.Form1.cmdClear.zorder(0)
+gui.Form1.cmdClear.position(3000,2885)
+gui.Form1.cmdClear.enabled(True)
+gui.Form1.cmdClear.fontname("Arial")
+gui.Form1.cmdClear.fontsize(8)
+gui.Form1.cmdClear.event(click,cmdclear_click)
+gui.Form1.cmdDelete.create(button)
+gui.Form1.cmdDelete.caption("Delete")
+gui.Form1.cmdDelete.visible(True)
+gui.Form1.cmdDelete.size(855,375)
+gui.Form1.cmdDelete.zorder(0)
+gui.Form1.cmdDelete.position(1760,2885)
+gui.Form1.cmdDelete.enabled(True)
+gui.Form1.cmdDelete.fontname("Arial")
+gui.Form1.cmdDelete.fontsize(8)
+gui.Form1.cmdDelete.event(click,cmddelete_click)
+gui.Form1.lbl1.create(label,"Employee No",True,1125,255,1,300,405,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl2.create(label,"Name",True,1935,255,1,2200,405,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl3.create(label,"Title",True,1935,255,1,300,1190,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl4.create(label,"Incentive Pay Rate",True,1935,255,1,300,1945,True,0,Arial,8,-2147483633,0)
+gui.Form1.txtPayRate.create(textbox,"",True,1215,300,0,300,2165,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtEmpNo.tabstop(True)
+gui.Form1.txtEmpNo.tabindex(1)
+gui.Form1.txtTitle.tabstop(True)
+gui.Form1.txtTitle.tabindex(2)
+gui.Form1.txtPayRate.tabstop(True)
+gui.Form1.txtPayRate.tabindex(3)
+gui.Form1.cmdSave.tabstop(True)
+gui.Form1.cmdSave.tabindex(4)
+gui.Form1.cmdClear.tabstop(True)
+gui.Form1.cmdClear.tabindex(5)
+gui.Form1.cmdDelete.tabstop(True)
+gui.Form1.cmdDelete.tabindex(6)
+gui.Form1.txtName.tabstop(True)
+gui.Form1.txtName.tabindex(7)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+F.ODBC.Connection!Con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+
+Gui.Form1..Show
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+
+F.ODBC.Connection!Con.Close
+f.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+program.sub.cmdemobrwse_click.start
+
+V.Local.sTitles.Declare(String)
+V.Local.lWidths.Declare(Long)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.String.Split("Employee*!*Name","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1500*!*5000","*!*",V.Local.lWidths)
+
+F.Intrinsic.UI.Browser("Employee","Con","select distinct EMPLOYEE,NAME from V_EMPLOYEE_MSTR where BOAT_EMPLOYEE='Y' order by EMPLOYEE",V.Local.sTitles,V.Local.lWidths,8000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			Gui.Form1.txtEmpNo.Text(V.Local.sRet(0))
+			Gui.Form1.txtName.Text(V.Local.sRet(1))
+	F.Intrinsic.Control.EndIf
+
+program.sub.cmdemobrwse_click.end
+
+program.sub.txtempno_change.start
+
+V.Local.sSel.Declare(String)
+V.Local.sValue.Declare(String)
+
+F.Intrinsic.String.Concat("select NAME,TITLE,INCENTIVE_RATE from ATG_EMP_TITLE where EMPLOYEE='",V.Screen.Form1!txtEmpNo.Text,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstA",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstA.EOF,=,False)
+		Gui.Form1.txtName.Text(V.ODBC.Con!rstA.FieldVal!NAME)
+		Gui.Form1.txtTitle.Text(V.ODBC.Con!rstA.FieldVal!TITLE)
+			F.Intrinsic.String.Format(V.ODBC.Con!rstA.FieldVal!INCENTIVE_RATE,"0.00",V.Local.sValue)
+		Gui.Form1.txtPayRate.Text(V.Local.sValue)
+	F.Intrinsic.Control.Else
+		Gui.Form1.txtName.Text("")
+		Gui.Form1.txtTitle.Text("")
+		Gui.Form1.txtPayRate.Text("")
+
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstA.Close
+
+program.sub.txtempno_change.end
+
+program.sub.cmddelete_click.start
+
+V.Local.sDelete.Declare(String)
+V.Local.sEmployee.Declare(String)
+
+F.Intrinsic.String.Trim(V.Screen.Form1!txtEmpNo.Text,V.Local.sEmployee)
+F.Intrinsic.String.Concat("delete from ATG_EMP_TITLE where EMPLOYEE='",V.Local.sEmployee.UCase,"'",V.Local.sDelete)
+F.ODBC.Connection!Con.Execute(V.Local.sDelete)
+
+F.Intrinsic.Control.CallSub(Cmdclear_click)
+
+program.sub.cmddelete_click.end
+
+program.sub.cmdclear_click.start
+
+Gui.Form1.txtEmpNo.Text("")
+Gui.Form1.txtName.Text("")
+Gui.Form1.txtTitle.Text("")
+Gui.Form1.txtPayRate.Text("")
+
+program.sub.cmdclear_click.end
+
+program.sub.cmdsave_click.start
+
+V.Local.sEmpl.Declare(String)
+V.Local.sName.Declare(String)
+V.Local.sTitle.Declare(String)
+V.Local.sSel.Declare(String)
+
+
+F.Intrinsic.String.Trim(V.Screen.Form1!txtEmpNo.Text,V.Local.sEmpl)
+F.Intrinsic.String.Trim(V.Screen.Form1!txtName.Text,V.Local.sName)
+F.Intrinsic.String.Trim(V.Screen.Form1!txtTitle.Text,V.Local.sTitle)
+
+F.Intrinsic.String.Concat("select * from ATG_EMP_TITLE where EMPLOYEE='",V.Local.sEmpl.UCase,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstA",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstA.EOF,=,True)
+		F.ODBC.Con!rstA.AddNew
+			F.ODBC.Con!rstA.Set!EMPLOYEE(V.Local.sEmpl.UCase)
+			F.ODBC.Con!rstA.Set!NAME(V.Local.sName.UCase)
+	F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstA.Set!TITLE(V.Local.sTitle.uCase)
+			F.ODBC.Con!rstA.Set!INCENTIVE_RATE(V.Screen.Form1!txtPayRate.Text)
+		F.ODBC.Con!rstA.Update
+F.ODBC.Con!rstA.Close
+		
+
+F.Intrinsic.Control.CallSub(Cmdclear_click)
+
+program.sub.cmdsave_click.end
+
+
