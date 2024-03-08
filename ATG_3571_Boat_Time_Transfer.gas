@@ -1,0 +1,182 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.HLBEMP.Define("Employee",String,"EMPLOYEE")
+Variable.UDT.EBIEMP.Define("Employee",String,"EMPLOYEE")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: JCT
+'Project Start Date: 02/16/2011
+'Hooks:
+'  custom menu
+'Other Components:
+'  for Elevating Boats to transfer payroll from company HLB to EBI
+
+
+
+V.Local.iForA.Declare(Long)
+V.Local.iForB.Declare(Long)
+V.Local.iHndl.Declare(Long)
+V.Local.sSel.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sMsg.Declare(String)
+V.Local.iMsgRet.Declare(Long)
+V.Local.sFile.Declare(String)
+V.Local.sUploadFile.Declare(String)
+V.Local.sUploadData.Declare(String)
+V.Local.sdata.Declare(String)
+V.Local.sDelete.Declare(String)
+V.Local.sEC.Declare(String)
+V.Local.sRate.Declare(String)
+V.Local.sHours.Declare(String)
+V.Local.sDept.Declare(String)
+V.Local.sDollars.Declare(String)
+V.Local.sCheckDate.Declare(String)
+V.Local.sPrdEndDte.Declare(String)
+V.Local.bHere.Declare(Boolean)
+V.Local.bException.Declare(Boolean)
+F.Intrinsic.Debug.Stop
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\WTIMEEBI",V.Local.sFile)
+'F.Intrinsic.String.Concat(V.Caller.FilesDir,"\WTIMERTY",V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bHere)
+	F.Intrinsic.Control.If(V.Local.bHere,=,False)
+		F.Intrinsic.UI.Msgbox("Time Card File Not Created.")
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndIf
+
+V.uLocal.uHLBEMPLOYEE.Declare(Hlbemp)
+V.uLocal.uEBIEMPLOYEE.Declare(Ebiemp)
+
+
+F.ODBC.Connection!ConHLB.OpenConnection("Global_HLB",V.Ambient.PUser,V.Ambient.PPass)
+F.ODBC.Connection!ConEBI.OpenConnection("Global_EBI",V.Ambient.PUser,V.Ambient.PPass)
+
+'F.ODBC.Connection!ConHLB.OpenConnection("Global_JCG",V.Ambient.PUser,V.Ambient.PPass)
+'F.ODBC.Connection!ConEBI.OpenConnection("Global_RTY",V.Ambient.PUser,V.Ambient.PPass)
+
+'get all employee Id's on HLB
+F.ODBC.Connection!ConHLB.OpenRecordsetRO("rstHLB","select distinct EMPLOYEE from PAYROLL_TC_RATES order by EMPLOYEE")
+	F.Intrinsic.Control.If(V.ODBC.ConHLB!rstHLB.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("ConHLB","rstHLB","variable.uLocal.uHLBEMPLOYEE",False,0)
+	F.Intrinsic.Control.EndIf
+F.ODBC.ConHLB!rstHLB.Close
+
+'get all employee Id's on EBI
+F.ODBC.Connection!ConEBI.OpenRecordsetRO("rstEBI","select distinct EMPLOYEE from PAYROLL_TC_RATES order by EMPLOYEE")
+	F.Intrinsic.Control.If(V.ODBC.ConEBI!rstEBI.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("ConEBI","rstEBI","variable.uLocal.uEBIEMPLOYEE",False,0)
+	F.Intrinsic.Control.EndIf
+F.ODBC.ConEBI!rstEBI.Close
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\boatebi.txt",V.Local.sUploadFile)
+	F.Intrinsic.File.Exists(V.Local.sUploadFile,V.Local.bHere)
+		F.Intrinsic.Control.If(V.Local.bHere,=,True)
+			F.Intrinsic.File.DeleteFile(V.Local.sUploadFile)
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.File.GetHandle(V.Local.iHndl)
+	F.Intrinsic.File.OpenForWrite(V.Local.sUploadFile,V.Local.iHndl)
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\Pay_Exception_Log.csv",V.Local.sFile)
+	V.Local.sdata.Set("Employee,Earnings Code,Hours")
+
+'for each HLB employee, see if record exists on EBI file
+	F.Intrinsic.Control.For(V.Local.iForA,V.uLocal.uHLBEMPLOYEE!Employee.LBound,V.uLocal.uHLBEMPLOYEE!Employee.UBound,1)
+		F.Intrinsic.Variable.UDTSeek(V.uLocal.uEBIEMPLOYEE!Employee,V.uLocal.uHLBEMPLOYEE(V.Local.iForA)!Employee,4,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+
+				F.Intrinsic.String.Concat("Payroll Records Already Exist For Employee ",V.uLocal.uHLBEMPLOYEE(V.Local.iForA)!Employee,".  Overwrite Existing Records?",V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"",4,V.Local.iMsgRet)
+				F.Intrinsic.Control.If(V.Local.iMsgRet,=,7)
+					V.Local.bException.Set(True)
+
+					F.Intrinsic.String.Concat("select * from PAYROLL_TC_RATES where EMPLOYEE='",V.uLocal.uHLBEMPLOYEE(V.Local.iForA)!Employee,"'",V.Local.sSel)
+					F.ODBC.Connection!ConHLB.OpenRecordsetRO("rstHLB",V.Local.sSel)
+						F.Intrinsic.Control.DoUntil(V.ODBC.ConHLB!rstHLB.EOF,=,True)
+							F.Intrinsic.String.Concat(V.Local.sdata,V.Ambient.NewLine,V.ODBC.ConHLB!rstHLB.FieldValTrim!EMPLOYEE,",",V.ODBC.ConHLB!rstHLB.FieldValTrim!EARNINGS,",",V.ODBC.ConHLB!rstHLB.FieldValTrim!HOURS_R_1,V.Local.sdata)
+						F.ODBC.ConHLB!rstHLB.MoveNext
+						F.Intrinsic.Control.Loop
+					F.ODBC.ConHLB!rstHLB.Close
+
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.Concat("delete  from PAYROLL_TC_RATES where EMPLOYEE='",V.uLocal.uHLBEMPLOYEE(V.Local.iForA)!Employee,"'",V.Local.sDelete)
+					F.ODBC.Connection!ConEBI.Execute(V.Local.sDelete)
+
+					F.Intrinsic.String.Concat("select * from V_PAYROLL_TC_RATES where EMPLOYEE='",V.uLocal.uHLBEMPLOYEE(V.Local.iForA)!Employee,"'",V.Local.sSel)
+					F.ODBC.Connection!ConHLB.OpenRecordsetRO("rstHLB",V.Local.sSel)
+						F.Intrinsic.Control.DoUntil(V.ODBC.ConHLB!rstHLB.EOF,=,True)
+							V.Local.sEC.Set(V.ODBC.ConHLB!rstHLB.FieldValTrim!EARNINGS)
+							F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValFloat!RATE_1,"0.00",V.Local.sRate)
+							F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!HOURS_R_1,"0.00",V.Local.sHours)
+							F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!REG_DOLLARS_1,"0.00",V.Local.sDOLLARS)
+							F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!ERN_CHECK_DATE,"mmddyy",V.Local.sCheckDate)
+							F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!ERN_CHECK_PER_END,"mmddyy",V.Local.sPrdEndDte)
+							V.Local.sDept.Set(V.ODBC.ConHLB!rstHLB.FieldValTrim!DEPT_1)
+
+							F.Intrinsic.String.Concat(V.ODBC.ConHLB!rstHLB.FieldValTrim!EMPLOYEE,"*!*1*!*",V.Local.sEC,"*!*",V.Local.sRate,"*!*",V.Local.sDollars,"*!*0*!*0*!*",V.Local.sHours,"*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sUploaddata)
+								F.Intrinsic.File.WriteLine(V.Local.iHndl,V.Local.sUploadData)
+'							F.Intrinsic.String.Concat(V.ODBC.ConHLB!rstHLB.FieldValTrim!EMPLOYEE,"*!*1*!*DD*!*0.000*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0000*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0000*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0000*!*000000*!*000000",V.local.sUploaddata)
+'								F.Intrinsic.File.WriteLine(V.Local.iHndl,V.Local.sUploadData)
+'
+						F.ODBC.ConHLB!rstHLB.MoveNext
+						F.Intrinsic.Control.Loop
+					F.ODBC.ConHLB!rstHLB.Close
+
+				F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Concat("select * from V_PAYROLL_TC_RATES where EMPLOYEE='",V.uLocal.uHLBEMPLOYEE(V.Local.iForA)!Employee,"'",V.Local.sSel)
+				F.ODBC.Connection!ConHLB.OpenRecordsetRO("rstHLB",V.Local.sSel)
+					F.Intrinsic.Control.DoUntil(V.ODBC.ConHLB!rstHLB.EOF,=,True)
+						V.Local.sEC.Set(V.ODBC.ConHLB!rstHLB.FieldValTrim!EARNINGS)
+						F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValFloat!RATE_1,"0.00",V.Local.sRate)
+						F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!HOURS_R_1,"0.00",V.Local.sHours)
+						F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!REG_DOLLARS_1,"0.00",V.Local.sDOLLARS)
+						F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!ERN_CHECK_DATE,"mmddyy",V.Local.sCheckDate)
+						F.Intrinsic.String.Format(V.ODBC.ConHLB!rstHLB.FieldValTrim!ERN_CHECK_PER_END,"mmddyy",V.Local.sPrdEndDte)
+						V.Local.sDept.Set(V.ODBC.ConHLB!rstHLB.FieldValTrim!DEPT_1)
+
+						F.Intrinsic.String.Concat(V.ODBC.ConHLB!rstHLB.FieldValTrim!EMPLOYEE,"*!*1*!*",V.Local.sEC,"*!*",V.Local.sRate,"*!*",V.Local.sDollars,"*!*0*!*0*!*",V.Local.sHours,"*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sRate,"*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*",V.Local.sDept,"*!*",V.Local.sCheckDate,"*!*",V.Local.sPrdEndDte,"*!*",V.local.sUploaddata)
+							F.Intrinsic.File.WriteLine(V.Local.iHndl,V.Local.sUploadData)
+'						F.Intrinsic.String.Concat(V.ODBC.ConHLB!rstHLB.FieldValTrim!EMPLOYEE,"*!*1*!*DD*!*0.000*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0000*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0000*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0*!*0000*!*000000*!*000000",V.local.sUploaddata)
+'							F.Intrinsic.File.WriteLine(V.Local.iHndl,V.Local.sUploadData)
+'
+					F.ODBC.ConHLB!rstHLB.MoveNext
+					F.Intrinsic.Control.Loop
+				F.ODBC.ConHLB!rstHLB.Close
+
+			F.Intrinsic.Control.Endif
+
+				F.Intrinsic.String.Concat("delete  from PAYROLL_TC_RATES where EMPLOYEE='",V.uLocal.uHLBEMPLOYEE(V.Local.iForA)!Employee,"'",V.Local.sDelete)
+				F.ODBC.Connection!ConHLB.Execute(V.Local.sDelete)
+
+	F.Intrinsic.Control.Next(V.Local.iForA)
+
+F.Intrinsic.File.CloseFile(V.Local.iHndl)
+
+F.Intrinsic.Control.If(V.Local.sUploadData,<>,"")
+	F.Intrinsic.String.Concat(V.Ambient.DblQuote,"EBI",V.Local.sUploadFile,V.Ambient.DblQuote,V.Local.sUploadFile)
+'	F.Intrinsic.String.Concat(V.Ambient.DblQuote,"RTY",V.Local.sUploadFile,V.Ambient.DblQuote,V.Local.sUploadFile)
+	F.Intrinsic.Task.LaunchGSSSync("XUPLDEBI","-C",V.Local.sUploadFile)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Local.bException,=,True)
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sdata)
+	F.Intrinsic.UI.Msgbox("Exceptions Occured.  Please Review Pay_Exception_Log.csv")
+F.Intrinsic.Control.EndIf
+	
+F.ODBC.Connection!ConEBI.Close
+F.ODBC.Connection!ConHLB.Close
+F.Intrinsic.UI.Msgbox("Transfer Complete")
+F.Intrinsic.Control.End
+
+
+
+
+Program.Sub.Main.End
+
+
